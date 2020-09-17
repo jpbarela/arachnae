@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/jpbarela/arachnae/issues"
   },
-  "homepage": "https://github.com/jpbarela/arachnae#readme"
+  "homepage": "https://github.com/jpbarela/arachnae#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "bufferutil": "^4.0.1",
+    "canvas": "^2.6.1",
+    "jest": "^26.4.2",
+    "utf-8-validate": "^5.0.2"
+  }
 }
