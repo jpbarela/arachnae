@@ -2,8 +2,10 @@
   "name": "arachnae",
   "version": "0.1.0",
   "description": "A simple React component library",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
+    "build": "babel src/ --out-file dist/index.js ",
+    "prepublish": "npm rub build",
     "test": "jest"
   },
   "repository": {
@@ -18,9 +20,16 @@
   "homepage": "https://github.com/jpbarela/arachnae#readme",
   "dependencies": {},
   "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-flow": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "babel-preset-minify": "^0.5.1",
     "bufferutil": "^4.0.1",
     "canvas": "^2.6.1",
+    "flow-bin": "^0.133.0",
     "jest": "^26.4.2",
-    "utf-8-validate": "^5.0.2"
+    "utf-8-validate": "^5.0.2",
+    "webpack": "^4.44.1"
   }
 }
