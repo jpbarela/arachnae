@@ -1,12 +1,12 @@
 {
   "name": "@jpbarela/arachnae",
-  "version": "0.1.1-rc2",
+  "version": "0.1.1",
   "description": "A simple React component library",
   "main": "dist/index.js",
   "files": ["dist"],
   "scripts": {
     "build": "npm run build:js && npm run build:flow",
-    "build:js": "babel src/ -d dist",
+    "build:js": "babel src/ -d dist --ignore '**/*.test.js' --ignore '**/*.test.jsx'",
     "build:flow": "flow-copy-source -i **/*.test.js -i **/*.test.jsx src dist",
     "test": "jest",
     "flow": "flow",
