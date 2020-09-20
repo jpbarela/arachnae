@@ -2,7 +2,8 @@ plugins:
   duplication:
     enabled: true
     exclude_patterns:
-      - "**/*.test.js?(x)"
+      - "**/*.test.js"
+      - "**/*.test.jsx"
     config:
       languages:
         python:
