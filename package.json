@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "A simple React component library",
   "main": "src/index.js",
+  "files": "dist/**",
   "scripts": {
     "build": "npm run build:js && npm run build:flow",
     "build:js": "babel src/ --out-file dist/index.js",
