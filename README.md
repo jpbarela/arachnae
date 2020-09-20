@@ -10,7 +10,12 @@ management.
 ## Installation
 
 A NPM package is hosted on the Github package repository. To install this package:
-1. Add `registry=https://npm.pkg.github.com/jpbarela` to an `.npmrc` file in your project
+1. Create a Github Personal Access Token, https://github.com/settings/tokens.
+    * It is recommended you use an access token with only read package access
+1. Update your `.npmrc` file:
+    1. Add your token to authenticate to the Github registry,
+        `//npm.pkg.github.com/:_authToken=TOKEN`
+    2. Add `registry=https://npm.pkg.github.com/jpbarela`
 2. You can now use your node package manager to add `@jpbarela/arachnae`
 
 ## Development
