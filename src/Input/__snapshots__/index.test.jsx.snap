@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Inputs Input renders 1`] = `
+<div>
+  <input
+    class="input_40oh4w"
+    value=""
+  />
+</div>
+`;
+
+exports[`Inputs NumericInput renders 1`] = `
+<div>
+  <input
+    class="input_40oh4w"
+    type="number"
+    value=""
+  />
+</div>
+`;
