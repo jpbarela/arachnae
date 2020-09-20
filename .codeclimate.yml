@@ -1,0 +1,11 @@
+plugins:
+  duplication:
+    enabled: true
+    exclude_patterns:
+      - "**/*.test.js"
+      - "**/*.test.jsx"
+    config:
+      languages:
+        python:
+        javascript:
+          mass_threshold: 70

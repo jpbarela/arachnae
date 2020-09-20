@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Row renders 1`] = `
+<div>
+  <div
+    class="row_zecri-o_O-space-between_1sh8tod"
+  >
+    I'm a row
+  </div>
+</div>
+`;

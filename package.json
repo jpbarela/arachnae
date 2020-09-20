@@ -1,10 +1,16 @@
 {
-  "name": "arachnae",
+  "name": "@jpbarela/arachnae",
   "version": "0.1.0",
   "description": "A simple React component library",
-  "main": "index.js",
+  "main": "src/index.js",
+  "files": "dist/**",
   "scripts": {
-    "test": "jest"
+    "build": "npm run build:js && npm run build:flow",
+    "build:js": "babel src/ --out-file dist/index.js",
+    "build:flow": "flow-copy-source -i **/*.test.js -i **/*.test.jsx src dist",
+    "test": "jest",
+    "flow": "flow",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -15,5 +21,31 @@
   "bugs": {
     "url": "https://github.com/jpbarela/arachnae/issues"
   },
-  "homepage": "https://github.com/jpbarela/arachnae#readme"
+  "homepage": "https://github.com/jpbarela/arachnae#readme",
+  "peerDependencies": {
+    "react": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-flow": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "@testing-library/react": "^11.0.4",
+    "babel-jest": "^26.3.0",
+    "babel-preset-minify": "^0.5.1",
+    "bufferutil": "^4.0.1",
+    "canvas": "^2.6.1",
+    "flow-bin": "^0.133.0",
+    "flow-copy-source": "^2.0.9",
+    "flow-typed": "^3.2.1",
+    "jest": "^26.4.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "utf-8-validate": "^5.0.2",
+    "webpack": "^4.44.1"
+  },
+  "dependencies": {
+    "aphrodite": "^2.4.0"
+  }
 }

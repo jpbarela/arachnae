@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Typography NumericInput renders 1`] = `
+<div>
+  <h1>
+    Title
+  </h1>
+</div>
+`;
+
+exports[`Typography SectionHeader renders 1`] = `
+<div>
+  <h2>
+    Section Heading
+  </h2>
+</div>
+`;
