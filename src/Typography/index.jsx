@@ -9,6 +9,6 @@ export function Title({ children }: TextProps) {
   return <h1>{children}</h1>;
 }
 
-export function SectionHeader({ children }: TextProps) {
+export function SectionHeading({ children }: TextProps) {
   return <h2>{children}</h2>;
 }

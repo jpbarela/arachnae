@@ -1,5 +1,5 @@
 // @flow
-export { Input, NumericInput } from "./input";
+export { Input, NumericInput } from "./Input";
 export { Row } from "./Layout";
 export {
   Table,
@@ -9,4 +9,4 @@ export {
   TableHeader,
   TableRow,
 } from "./Table";
-export { SectionHeader, Title } from "./typography";
+export { SectionHeading, Title } from "./Typography";
