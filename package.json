@@ -9,7 +9,7 @@
     "build:flow": "flow-copy-source -i **/*.test.js -i **/*.test.jsx src dist",
     "test": "jest",
     "flow": "flow",
-    "prepublish": "npm run build"
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
