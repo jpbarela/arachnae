@@ -48,6 +48,7 @@
     "webpack": "^4.44.1"
   },
   "dependencies": {
+    "date-fns": "^2.16.1",
     "react-jss": "^10.4.0"
   }
 }

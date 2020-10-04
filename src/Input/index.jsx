@@ -1,6 +1,8 @@
 // @flow
 import * as React from "react";
 import { createUseStyles } from "react-jss";
+import { format, parse } from "date-fns";
+import type { ThemeType } from "../Theme";
 
 type InputProps = {
   placeholder?: string,
@@ -12,6 +14,12 @@ type NumericInputProps = {
   placeholder?: string,
   value?: ?number,
   setValue?: (number) => void,
+};
+
+type DateInputProps = {
+  placeholder?: string,
+  value?: Date,
+  setValue?: (Date) => void,
 };
 
 export function Input({
@@ -50,6 +58,48 @@ export function NumericInput({
     />
   );
 }
+
+export function DateInput({
+  placeholder,
+  value,
+  setValue,
+}: DateInputProps): React.Node {
+  const classes = useInputStyles();
+
+  return (
+    <input
+      type="date"
+      placeholder={placeholder}
+      value={value ? format(value, "yyyy-MM-dd") : ""}
+      onChange={(event) => {
+        setValue
+          ? setValue(parse(event.target.value, "yyyy-MM-dd", new Date()))
+          : null;
+      }}
+      className={[classes.input, classes.dateInput]}
+    />
+  );
+}
+
+const styles = createUseStyles((theme: ThemeType) => ({
+  input: {
+    width: "250px",
+    fontFamily: theme.fontFamily,
+    color: theme.color,
+    background: theme.background,
+    borderTopStyle: "none",
+    borderLeftStyle: "none",
+    borderRightStyle: "none",
+    borderBottomStyle: "solid",
+    borderBottomWidth: "2px",
+    borderBottomColor: theme.color,
+  },
+  dateInput: {
+    "::-webkit-calendar-picker-indicator": {
+      filter: "invert(1)",
+    },
+  },
+}));
 
 const useInputStyles = createUseStyles({
   input: {
