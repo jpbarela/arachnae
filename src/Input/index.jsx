@@ -1,6 +1,6 @@
 // @flow
 import * as React from "react";
-import { createUseStyles } from "react-jss";
+import { createUseStyles, useTheme } from "react-jss";
 import { format, parse } from "date-fns";
 import type { ThemeType } from "../Theme";
 
@@ -27,6 +27,7 @@ export function Input({
   value,
   setValue,
 }: InputProps): React.Node {
+  const theme = useTheme();
   const classes = useInputStyles();
 
   return (
@@ -44,7 +45,8 @@ export function NumericInput({
   value,
   setValue,
 }: NumericInputProps): React.Node {
-  const classes = useInputStyles();
+  const theme = useTheme();
+  const classes = useInputStyles(theme);
 
   return (
     <input
@@ -64,7 +66,8 @@ export function DateInput({
   value,
   setValue,
 }: DateInputProps): React.Node {
-  const classes = useInputStyles();
+  const theme = useTheme();
+  const classes = useInputStyles(theme);
 
   return (
     <input
@@ -81,7 +84,7 @@ export function DateInput({
   );
 }
 
-const styles = createUseStyles((theme: ThemeType) => ({
+const useInputStyles = createUseStyles((theme: ThemeType) => ({
   input: {
     width: "250px",
     fontFamily: theme.fontFamily,
@@ -100,9 +103,3 @@ const styles = createUseStyles((theme: ThemeType) => ({
     },
   },
 }));
-
-const useInputStyles = createUseStyles({
-  input: {
-    width: "250px",
-  },
-});

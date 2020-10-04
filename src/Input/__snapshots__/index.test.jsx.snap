@@ -1,5 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Inputs DateInput renders 1`] = `
+<div>
+  <input
+    class="input-0-2-1,dateInput-0-2-2"
+    type="date"
+    value=""
+  />
+</div>
+`;
+
 exports[`Inputs Input renders 1`] = `
 <div>
   <input
