@@ -1,26 +1,32 @@
 // @flow
 import * as React from "react";
-import { StyleSheet, css } from "aphrodite";
+import { createUseStyles } from "react-jss";
 
 type InputProps = {
   placeholder?: string,
   value?: ?string,
-  setValue?: string => void
+  setValue?: (string) => void,
 };
 
 type NumericInputProps = {
   placeholder?: string,
   value?: ?number,
-  setValue?: number => void
+  setValue?: (number) => void,
 };
 
-export function Input({ placeholder, value, setValue }: InputProps) {
+export function Input({
+  placeholder,
+  value,
+  setValue,
+}: InputProps): React.Node {
+  const classes = useInputStyles();
+
   return (
     <input
       placeholder={placeholder}
       value={value == null ? "" : value}
-      onChange={event => (setValue ? setValue(event.target.value) : null)}
-      className={css(styles.input)}
+      onChange={(event) => (setValue ? setValue(event.target.value) : null)}
+      className={classes.input}
     />
   );
 }
@@ -28,23 +34,25 @@ export function Input({ placeholder, value, setValue }: InputProps) {
 export function NumericInput({
   placeholder,
   value,
-  setValue
-}: NumericInputProps) {
+  setValue,
+}: NumericInputProps): React.Node {
+  const classes = useInputStyles();
+
   return (
     <input
       type="number"
       placeholder={placeholder}
       value={value == null ? "" : value}
-      onChange={event =>
+      onChange={(event) =>
         setValue ? setValue(parseFloat(event.target.value)) : null
       }
-      className={css(styles.input)}
+      className={classes.input}
     />
   );
 }
 
-const styles = StyleSheet.create({
+const useInputStyles = createUseStyles({
   input: {
-    width: "250px"
-  }
+    width: "250px",
+  },
 });

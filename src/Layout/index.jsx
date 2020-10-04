@@ -1,17 +1,19 @@
 // @flow
 import * as React from "react";
-import { StyleSheet, css } from "aphrodite";
+import { createUseStyles } from "react-jss";
 
-type FlexAlignType = "center" | "space-between";
+type FlexAlignType = "center" | "space-between" | "start";
 
 type RowType = {
   justifyContent: FlexAlignType,
   children?: React.Node,
 };
 
-export function Row({ justifyContent, children }: RowType) {
+export function Row({ justifyContent, children }: RowType): React.Node {
+  const classes = useRowStyles();
+
   return (
-    <div className={css([styles.row, styles[justifyContent]])}>{children}</div>
+    <div className={[classes.row, classes[justifyContent]]}>{children}</div>
   );
 }
 
@@ -19,7 +21,7 @@ Row.defaultProps = {
   justifyContent: "space-between",
 };
 
-const styles = StyleSheet.create({
+const useRowStyles = createUseStyles({
   row: {
     display: "flex",
     padding: "5px 0",
@@ -29,5 +31,8 @@ const styles = StyleSheet.create({
   },
   "space-between": {
     justifyContent: "space-between",
+  },
+  start: {
+    justifyContent: "start",
   },
 });

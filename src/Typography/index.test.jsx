@@ -2,27 +2,21 @@
 import * as React from "react";
 import { render } from "@testing-library/react";
 import { SectionHeading, Title } from "./index";
-import { StyleSheetTestUtils } from "aphrodite";
 
 describe("Typography", () => {
-  beforeEach(() => {
-    StyleSheetTestUtils.suppressStyleInjection();
-  });
-  afterEach(() => {
-    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
-  });
-
   describe("SectionHeader", () => {
     it("renders", () => {
-        const container = render(<SectionHeading>Section Heading</SectionHeading>);
-        expect(container.baseElement.firstChild).toMatchSnapshot();
-      });
-  })
+      const container = render(
+        <SectionHeading>Section Heading</SectionHeading>
+      );
+      expect(container.baseElement.firstChild).toMatchSnapshot();
+    });
+  });
 
   describe("NumericInput", () => {
     it("renders", () => {
-        const container = render(<Title>Title</Title>);
-        expect(container.baseElement.firstChild).toMatchSnapshot();
-      });
-  })
+      const container = render(<Title>Title</Title>);
+      expect(container.baseElement.firstChild).toMatchSnapshot();
+    });
+  });
 });

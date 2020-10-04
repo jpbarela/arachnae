@@ -38,7 +38,7 @@
     "babel-preset-minify": "^0.5.1",
     "bufferutil": "^4.0.1",
     "canvas": "^2.6.1",
-    "flow-bin": "^0.133.0",
+    "flow-bin": "^0.135.0",
     "flow-copy-source": "^2.0.9",
     "flow-typed": "^3.2.1",
     "jest": "^26.4.2",
@@ -48,6 +48,6 @@
     "webpack": "^4.44.1"
   },
   "dependencies": {
-    "aphrodite": "^2.4.0"
+    "react-jss": "^10.4.0"
   }
 }

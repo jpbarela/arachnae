@@ -1,28 +1,36 @@
 // @flow
 import * as React from "react";
 import { render } from "@testing-library/react";
-import { Table, TableBody, TableData, TableHead, TableHeader, TableRow } from "./index";
-import { StyleSheetTestUtils } from "aphrodite";
+import {
+  Table,
+  TableBody,
+  TableData,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "./index";
 
 describe("Row", () => {
-  beforeEach(() => {
-    StyleSheetTestUtils.suppressStyleInjection();
-  });
-  afterEach(() => {
-    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
-  });
-
   it("renders", () => {
     const container = render(
-    <Table>
+      <Table>
         <TableHead>
-            <TableRow><TableHeader>Name</TableHeader><TableHeader>Salary</TableHeader></TableRow>
+          <TableRow>
+            <TableHeader>Name</TableHeader>
+            <TableHeader>Salary</TableHeader>
+          </TableRow>
         </TableHead>
         <TableBody>
-          <TableRow><TableData>Joe</TableData><TableData>$100</TableData></TableRow>
-          <TableRow><TableData>Jane</TableData><TableData>$150</TableData></TableRow>
+          <TableRow>
+            <TableData>Joe</TableData>
+            <TableData>$100</TableData>
+          </TableRow>
+          <TableRow>
+            <TableData>Jane</TableData>
+            <TableData>$150</TableData>
+          </TableRow>
         </TableBody>
-    </Table>
+      </Table>
     );
     expect(container.baseElement.firstChild).toMatchSnapshot();
   });
