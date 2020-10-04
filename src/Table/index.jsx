@@ -1,6 +1,6 @@
 // @flow
 import * as React from "react";
-import { StyleSheet, css } from "aphrodite";
+import { createUseStyles } from "react-jss";
 
 type TableProps = {
   children?: React.Node,
@@ -18,19 +18,21 @@ type TableHeaderProps = TableDataProps & {
   scope?: string,
 };
 
-export function Table({ children }: TableProps) {
-  return <table className={css(tableStyles.table)}>{children}</table>;
+export function Table({ children }: TableProps): React.Node {
+  const classes = useTableStyles();
+
+  return <table className={classes.table}>{children}</table>;
 }
 
-export function TableBody({ children }: TableProps) {
+export function TableBody({ children }: TableProps): React.Node {
   return <tbody>{children}</tbody>;
 }
 
-export function TableRow({ children }: TableProps) {
+export function TableRow({ children }: TableProps): React.Node {
   return <tr>{children}</tr>;
 }
 
-export function TableHead({ children }: TableProps) {
+export function TableHead({ children }: TableProps): React.Node {
   return <thead>{children}</thead>;
 }
 
@@ -41,10 +43,12 @@ export function TableHeader({
   scope,
   children,
   styles,
-}: TableHeaderProps) {
+}: TableHeaderProps): React.Node {
+  const classes = useTableStyles();
+
   return (
     <th
-      className={css([center && tableStyles.center, styles])}
+      className={[center && classes.center, styles]}
       colSpan={colSpan ? colSpan : 1}
       rowSpan={rowSpan ? rowSpan : 1}
       scope={scope}
@@ -60,14 +64,12 @@ export function TableData({
   rowSpan,
   children,
   styles,
-}: TableDataProps) {
+}: TableDataProps): React.Node {
+  const classes = useTableStyles();
+
   return (
     <td
-      className={css([
-        tableStyles.tableData,
-        center && tableStyles.center,
-        styles,
-      ])}
+      className={[classes.tableData, center && classes.center, styles]}
       colSpan={colSpan ? colSpan : 1}
       rowSpan={rowSpan ? rowSpan : 1}
     >
@@ -76,7 +78,7 @@ export function TableData({
   );
 }
 
-const tableStyles = StyleSheet.create({
+const useTableStyles = createUseStyles({
   center: {
     textAlign: "center",
   },

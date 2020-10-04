@@ -1,6 +1,6 @@
 // @flow
 import * as React from "react";
-import { StyleSheet, css } from "aphrodite";
+import { createUseStyles } from "react-jss";
 
 type PageProps = {
   backgroundColor?: string,
@@ -15,9 +15,11 @@ export function Page({
   fontFamily,
   children,
 }: PageProps): React.Node {
+  const classes = usePageStyles();
+
   return (
     <div
-      className={css(pageStyles.page)}
+      className={classes.page}
       style={{ backgroundColor, color, fontFamily }}
     >
       {children}
@@ -25,7 +27,7 @@ export function Page({
   );
 }
 
-const pageStyles = StyleSheet.create({
+const usePageStyles = createUseStyles({
   page: {
     margin: 0,
     padding: "20px",
