@@ -3,6 +3,7 @@ import * as React from "react";
 import { createUseStyles, useTheme } from "react-jss";
 import { format, parse } from "date-fns";
 import type { ThemeType } from "../Theme";
+export { SelectInput } from "./SelectInput";
 
 type InputProps = {
   placeholder?: string,
