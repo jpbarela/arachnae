@@ -5,35 +5,39 @@ import { format, parse } from "date-fns";
 import type { ThemeType } from "../Theme";
 export { SelectInput } from "./SelectInput";
 
-type InputProps = {
+type BasicInputProps = {
   placeholder?: string,
+  testID?: string,
+};
+
+type InputProps = BasicInputProps & {
   value?: ?string,
   setValue?: (string) => void,
 };
 
-type NumericInputProps = {
-  placeholder?: string,
+type NumericInputProps = BasicInputProps & {
   value?: ?number,
   setValue?: (number) => void,
 };
 
-type DateInputProps = {
-  placeholder?: string,
+type DateInputProps = BasicInputProps & {
   value?: Date,
   setValue?: (Date) => void,
 };
 
 export function Input({
-  placeholder,
+  testID,
   value,
   setValue,
+  ...props
 }: InputProps): React.Node {
   const theme = useTheme();
   const classes = useInputStyles();
 
   return (
     <input
-      placeholder={placeholder}
+      {...props}
+      data-testid={testID}
       value={value == null ? "" : value}
       onChange={(event) => (setValue ? setValue(event.target.value) : null)}
       className={classes.input}
@@ -42,17 +46,19 @@ export function Input({
 }
 
 export function NumericInput({
-  placeholder,
+  testID,
   value,
   setValue,
+  ...props
 }: NumericInputProps): React.Node {
   const theme = useTheme();
   const classes = useInputStyles(theme);
 
   return (
     <input
+      {...props}
+      data-testid={testID}
       type="number"
-      placeholder={placeholder}
       value={value == null ? "" : value}
       onChange={(event) =>
         setValue ? setValue(parseFloat(event.target.value)) : null
@@ -63,17 +69,19 @@ export function NumericInput({
 }
 
 export function DateInput({
-  placeholder,
+  testID,
   value,
   setValue,
+  ...props
 }: DateInputProps): React.Node {
   const theme = useTheme();
   const classes = useInputStyles(theme);
 
   return (
     <input
+      {...props}
+      data-testid={testID}
       type="date"
-      placeholder={placeholder}
       value={value ? format(value, "yyyy-MM-dd") : ""}
       onChange={(event) => {
         setValue

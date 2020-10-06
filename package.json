@@ -1,6 +1,6 @@
 {
   "name": "@jpbarela/arachnae",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "A simple React component library",
   "main": "dist/index.js",
   "files": [
@@ -43,6 +43,7 @@
     "flow-typed": "^3.2.1",
     "jest": "^26.4.2",
     "react": "^16.13.1",
+    "react-app-polyfill": "^1.0.6",
     "react-dom": "^16.13.1",
     "utf-8-validate": "^5.0.2",
     "webpack": "^4.44.1"

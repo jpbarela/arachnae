@@ -1,6 +1,6 @@
 // @flow
 import * as React from "react";
-import { render } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import { DateInput, Input, NumericInput } from "./index";
 import { ThemeProvider } from "react-jss";
 import { defaultTheme } from "../Theme";
@@ -36,6 +36,23 @@ describe("Inputs", () => {
         </ThemeProvider>
       );
       expect(container.baseElement.firstChild).toMatchSnapshot();
+    });
+
+    it("sets dates correctly", async () => {
+      function DateInputContainer() {
+        const [date, setDate] = React.useState(new Date(2020, 9, 1));
+
+        return (
+          <ThemeProvider theme={defaultTheme}>
+            <DateInput value={date} setValue={setDate} testID={"dateInput"} />
+          </ThemeProvider>
+        );
+      }
+      const container = render(<DateInputContainer />);
+
+      const dateInput = container.getByDisplayValue("2020-10-01");
+      fireEvent.change(dateInput, { target: { value: "2020-10-15" } });
+      expect(await container.findByDisplayValue("2020-10-15")).toBeTruthy();
     });
   });
 });
