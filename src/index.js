@@ -1,5 +1,6 @@
 // @flow
-export { Input, NumericInput } from "./Input";
+export { Button } from "./Button";
+export { DateInput, Input, NumericInput, SelectInput } from "./Input";
 export { Row } from "./Layout";
 export { Page } from "./Page";
 export {
@@ -11,3 +12,5 @@ export {
   TableRow,
 } from "./Table";
 export { SectionHeading, Title } from "./Typography";
+export type { ThemeType } from "./Theme";
+export { defaultTheme } from "./Theme";
