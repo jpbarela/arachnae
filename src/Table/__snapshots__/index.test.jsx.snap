@@ -8,14 +8,12 @@ exports[`Row renders 1`] = `
     <thead>
       <tr>
         <th
-          class=","
           colspan="1"
           rowspan="1"
         >
           Name
         </th>
         <th
-          class=","
           colspan="1"
           rowspan="1"
         >
@@ -26,14 +24,14 @@ exports[`Row renders 1`] = `
     <tbody>
       <tr>
         <td
-          class="tableData-0-2-3,,"
+          class="tableData-0-2-3 "
           colspan="1"
           rowspan="1"
         >
           Joe
         </td>
         <td
-          class="tableData-0-2-3,,"
+          class="tableData-0-2-3 "
           colspan="1"
           rowspan="1"
         >
@@ -42,14 +40,14 @@ exports[`Row renders 1`] = `
       </tr>
       <tr>
         <td
-          class="tableData-0-2-3,,"
+          class="tableData-0-2-3 "
           colspan="1"
           rowspan="1"
         >
           Jane
         </td>
         <td
-          class="tableData-0-2-3,,"
+          class="tableData-0-2-3 "
           colspan="1"
           rowspan="1"
         >

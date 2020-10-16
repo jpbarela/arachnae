@@ -88,7 +88,7 @@ export function DateInput({
           ? setValue(parse(event.target.value, "yyyy-MM-dd", new Date()))
           : null;
       }}
-      className={[classes.input, classes.dateInput]}
+      className={classes.dateInput}
     />
   );
 }
@@ -107,6 +107,7 @@ const useInputStyles = createUseStyles((theme: ThemeType) => ({
     borderBottomColor: theme.color,
   },
   dateInput: {
+    composes: ["input"],
     "::-webkit-calendar-picker-indicator": {
       filter: "invert(1)",
     },

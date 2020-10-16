@@ -48,7 +48,8 @@ export function TableHeader({
 
   return (
     <th
-      className={[center && classes.center, styles]}
+      className={center && classes.center}
+      style={styles}
       colSpan={colSpan ? colSpan : 1}
       rowSpan={rowSpan ? rowSpan : 1}
       scope={scope}
@@ -69,7 +70,8 @@ export function TableData({
 
   return (
     <td
-      className={[classes.tableData, center && classes.center, styles]}
+      className={`${classes.tableData} ${center ? classes.center : ""}`}
+      style={styles}
       colSpan={colSpan ? colSpan : 1}
       rowSpan={rowSpan ? rowSpan : 1}
     >
