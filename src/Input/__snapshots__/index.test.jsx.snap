@@ -3,7 +3,7 @@
 exports[`Inputs DateInput renders 1`] = `
 <div>
   <input
-    class="input-0-2-1,dateInput-0-2-2"
+    class="dateInput-0-2-2 input"
     type="date"
     value=""
   />
