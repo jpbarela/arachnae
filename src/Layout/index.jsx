@@ -19,12 +19,10 @@ Row.defaultProps = {
   justifyContent: "space-between",
 };
 
-const useRowStyles = createUseStyles(
-  ({ justifyContent }: { justifyContent: FlexAlignType }) => ({
-    row: {
-      display: "flex",
-      padding: "5px 0",
-      justifyContent,
-    },
-  })
-);
+const useRowStyles = createUseStyles({
+  row: {
+    display: "flex",
+    padding: "5px 0",
+    justifyContent: ({ justifyContent }: { justifyContent: FlexAlignType }) => justifyContent,
+  },
+});

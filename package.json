@@ -1,6 +1,6 @@
 {
   "name": "@jpbarela/arachnae",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A simple React component library",
   "main": "dist/index.js",
   "files": [
@@ -25,7 +25,8 @@
   },
   "homepage": "https://github.com/jpbarela/arachnae#readme",
   "peerDependencies": {
-    "react": "^16.13.1"
+    "react": "^16.13.1",
+    "react-jss": "^10.4.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.11.6",
@@ -36,8 +37,6 @@
     "@testing-library/react": "^11.0.4",
     "babel-jest": "^26.3.0",
     "babel-preset-minify": "^0.5.1",
-    "bufferutil": "^4.0.1",
-    "canvas": "^2.6.1",
     "flow-bin": "^0.135.0",
     "flow-copy-source": "^2.0.9",
     "flow-typed": "^3.2.1",
@@ -45,11 +44,10 @@
     "react": "^16.13.1",
     "react-app-polyfill": "^1.0.6",
     "react-dom": "^16.13.1",
-    "utf-8-validate": "^5.0.2",
+    "react-jss": "^10.4.0",
     "webpack": "^4.44.1"
   },
   "dependencies": {
-    "date-fns": "^2.16.1",
-    "react-jss": "^10.4.0"
+    "date-fns": "^2.16.1"
   }
 }
