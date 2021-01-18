@@ -23,6 +23,6 @@ const useRowStyles = createUseStyles({
   row: {
     display: "flex",
     padding: "5px 0",
-    justifyContent: props => props.justifyContent,
+    justifyContent: ({ justifyContent }: { justifyContent: FlexAlignType }) => justifyContent,
   },
 });
