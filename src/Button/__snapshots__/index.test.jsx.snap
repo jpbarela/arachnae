@@ -4,8 +4,20 @@ exports[`Button renders 1`] = `
 <div>
   <button
     class="button-0-2-1"
+    type="button"
   >
     Press Me
+  </button>
+</div>
+`;
+
+exports[`Link renders 1`] = `
+<div>
+  <button
+    class="link-0-2-2"
+    type="button"
+  >
+    Click Me
   </button>
 </div>
 `;
