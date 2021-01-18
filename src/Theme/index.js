@@ -4,7 +4,7 @@ export type ButtonThemeType = {
 };
 
 export type LinkThemeType = {
-  primary: string,
+  color: string,
 }
 
 export type ThemeType = {
