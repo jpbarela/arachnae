@@ -7,26 +7,23 @@ type ButtonProps = {
   name: string,
 };
 
-export function Button({ onClick, name }: ButtonProps): React.Node {
+function baseButton({ onClick, name, classString }: ButtonProps & { classString: string }): React.Node {
   const theme = useTheme();
   const classes = useButtonStyles(theme);
 
   return (
-    <button type="button" onClick={onClick} className={classes.button}>
+    <button type="button" onClick={onClick} className={classes[classString]}>
       {name}
     </button>
   );
 }
 
-export function Link({ onClick, name }: ButtonProps): React.Node {
-  const theme = useTheme();
-  const classes = useButtonStyles(theme);
+export function Button({ onClick, name }: ButtonProps): React.Node {
+  return baseButton({ onClick, name, classString: "button" })
+}
 
-  return (
-    <button type="button" onClick={onClick} className={classes.link}>
-      {name}
-    </button>
-  )
+export function Link({ onClick, name }: ButtonProps): React.Node {
+  return baseButton({ onClick, name, classString: "link" })
 }
 
 const useButtonStyles = createUseStyles((theme) => ({
