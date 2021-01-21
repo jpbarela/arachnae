@@ -6,11 +6,16 @@ type FlexAlignType = "center" | "space-between" | "start";
 
 type RowType = {
   justifyContent: FlexAlignType,
+  backgroundColor?: string,
   children?: React.Node,
 };
 
-export function Row({ justifyContent, children }: RowType): React.Node {
-  const classes = useRowStyles({ justifyContent });
+export function Row({
+  justifyContent,
+  backgroundColor,
+  children,
+}: RowType): React.Node {
+  const classes = useRowStyles({ backgroundColor, justifyContent });
 
   return <div className={classes.row}>{children}</div>;
 }
@@ -23,6 +28,9 @@ const useRowStyles = createUseStyles({
   row: {
     display: "flex",
     padding: "5px 0",
-    justifyContent: ({ justifyContent }: { justifyContent: FlexAlignType }) => justifyContent,
+    justifyContent: ({ justifyContent }: { justifyContent: FlexAlignType }) =>
+      justifyContent,
+    backgroundColor: ({ backgroundColor }: { backgroundColor: string }) =>
+      backgroundColor,
   },
 });
