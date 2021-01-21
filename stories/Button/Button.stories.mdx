@@ -1,14 +1,20 @@
 import { Meta, Story } from "@storybook/addon-docs/blocks";
-import { Button, Link } from "../../src/Button";
+import { action } from "@storybook/addon-actions";
+import { Button } from "../../src/Button";
 
 <Meta
-  title="Buttons"
+  title="Button"
   component={Button}
-  argTypes={{ name: { control: 'text' } }}
+  argTypes={{ onClick: { action: "clicked" } }}
 />
 
-# Buttons
+# Button
+
+There are two main button components `<Button /> ` and `<Link />`. The functionality for both components is the same but
+`<Link />` is designed to look like a traditional web link.
 
 export const Template = (args) => <Button {...args} />;
 
-<Story name="Button" args={{ name: 'Press Me' }}>{Template.bind({})}</Story>
+<Story name="Button" args={{ name: "Press Me" }}>
+  {Template.bind({})}
+</Story>

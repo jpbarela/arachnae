@@ -1,0 +1,17 @@
+import { Meta, Story } from "@storybook/addon-docs/blocks";
+import { action } from "@storybook/addon-actions";
+import { Link } from "../../src/Button";
+
+<Meta
+  title="Link"
+  component={Link}
+  argTypes={{ onClick: { action: "clicked" } }}
+/>
+
+# Link
+
+export const Template = (args) => <Link {...args} />;
+
+<Story name="Link" args={{ name: "Click Me" }}>
+  {Template.bind({})}
+</Story>
