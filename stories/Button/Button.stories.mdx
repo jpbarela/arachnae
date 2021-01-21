@@ -1,0 +1,14 @@
+import { Meta, Story } from "@storybook/addon-docs/blocks";
+import { Button, Link } from "../../src/Button";
+
+<Meta
+  title="Buttons"
+  component={Button}
+  argTypes={{ name: { control: 'text' } }}
+/>
+
+# Buttons
+
+export const Template = (args) => <Button {...args} />;
+
+<Story name="Button" args={{ name: 'Press Me' }}>{Template.bind({})}</Story>
