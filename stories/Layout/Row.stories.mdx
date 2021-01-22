@@ -9,14 +9,14 @@ import { Row } from "../../src/Layout";
     backgroundColor: { control: "color" },
     justifyContent: {
       control: {
-        type: 'inline-radio',
-        options: ["center", "space-between", "start"]
-      }
+        type: "inline-radio",
+        options: ["center", "space-between", "start"],
+      },
     },
     children: {
-      table: {disable:true}
-    }
-   }}
+      table: { disable: true },
+    },
+  }}
 />
 
 # Row
@@ -31,6 +31,4 @@ export const Template = (args) => (
   </Row>
 );
 
-<Story name="Row">
-  {Template.bind({})}
-</Story>
+<Story name="Row">{Template.bind({})}</Story>

@@ -15,7 +15,7 @@ function baseButton({
   classString,
 }: ButtonProps & { classString: string }): React.Node {
   const theme = useTheme();
-  const classes = useButtonStyles({color});
+  const classes = useButtonStyles({ color });
 
   return (
     <button type="button" onClick={onClick} className={classes[classString]}>
@@ -32,18 +32,19 @@ export function Link(props: ButtonProps): React.Node {
   return baseButton({ ...props, classString: "link" });
 }
 
-const useButtonStyles = createUseStyles(theme => {
-  return ({
-  button: {
-    background: theme.button.primary,
-    borderRadius: "10px",
-    borderStyle: "none",
-    color: ({color }) => (color || theme.button.color),
-  },
-  link: {
-    border: 0,
-    background: "inherit",
-    textDecoration: "underline",
-    color: theme.link.color,
-  },
-})});
+const useButtonStyles = createUseStyles((theme) => {
+  return {
+    button: {
+      background: theme.button.primary,
+      borderRadius: "10px",
+      borderStyle: "none",
+      color: ({ color }) => color || theme.button.color,
+    },
+    link: {
+      border: 0,
+      background: "inherit",
+      textDecoration: "underline",
+      color: theme.link.color,
+    },
+  };
+});
