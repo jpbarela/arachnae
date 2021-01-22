@@ -3,7 +3,7 @@
 exports[`Button renders 1`] = `
 <div>
   <button
-    class="button-0-2-1"
+    class="button-0-2-1 button-d0-0-2-3"
     type="button"
   >
     Press Me

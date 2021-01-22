@@ -2,7 +2,9 @@
 
 exports[`Typography NumericInput renders 1`] = `
 <div>
-  <h1>
+  <h1
+    class="text-0-2-1 text-d1-0-2-3"
+  >
     Title
   </h1>
 </div>
@@ -10,7 +12,9 @@ exports[`Typography NumericInput renders 1`] = `
 
 exports[`Typography SectionHeader renders 1`] = `
 <div>
-  <h2>
+  <h2
+    class="text-0-2-1 text-d0-0-2-2"
+  >
     Section Heading
   </h2>
 </div>

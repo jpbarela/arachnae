@@ -5,15 +5,17 @@ import { createUseStyles, useTheme } from "react-jss";
 type ButtonProps = {
   onClick?: () => void,
   name: string,
+  color?: string,
 };
 
 function baseButton({
   onClick,
   name,
+  color,
   classString,
 }: ButtonProps & { classString: string }): React.Node {
   const theme = useTheme();
-  const classes = useButtonStyles(theme);
+  const classes = useButtonStyles({color});
 
   return (
     <button type="button" onClick={onClick} className={classes[classString]}>
@@ -22,20 +24,21 @@ function baseButton({
   );
 }
 
-export function Button({ onClick, name }: ButtonProps): React.Node {
-  return baseButton({ onClick, name, classString: "button" });
+export function Button(props: ButtonProps): React.Node {
+  return baseButton({ ...props, classString: "button" });
 }
 
-export function Link({ onClick, name }: ButtonProps): React.Node {
-  return baseButton({ onClick, name, classString: "link" });
+export function Link(props: ButtonProps): React.Node {
+  return baseButton({ ...props, classString: "link" });
 }
 
-const useButtonStyles = createUseStyles((theme) => ({
+const useButtonStyles = createUseStyles(theme => {
+  return ({
   button: {
     background: theme.button.primary,
     borderRadius: "10px",
     borderStyle: "none",
-    color: theme.button.color,
+    color: ({color }) => (color || theme.button.color),
   },
   link: {
     border: 0,
@@ -43,4 +46,4 @@ const useButtonStyles = createUseStyles((theme) => ({
     textDecoration: "underline",
     color: theme.link.color,
   },
-}));
+})});
