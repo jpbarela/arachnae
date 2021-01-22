@@ -1,0 +1,24 @@
+import { Meta, Story } from "@storybook/addon-docs/blocks";
+import {Title, SectionHeading } from "../../src/Typography";
+
+<Meta
+  title="Typography"
+  argTypes={{color: {control: "color"}}}
+/>
+
+# Typography
+
+There is a basic semantic hierarchy implemented by the library in:
+1. Title
+2. SectionHeading
+
+export const Template = (args) => (
+  <>
+  <Title {...args}>Title</Title>
+  <SectionHeading {...args}>Section</SectionHeading>
+  </>
+);
+
+<Story name="Typography">
+  {Template.bind({})}
+</Story>
