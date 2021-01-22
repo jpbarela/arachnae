@@ -5,7 +5,7 @@ export type ButtonThemeType = {
 
 export type LinkThemeType = {
   color: string,
-}
+};
 
 export type ThemeType = {
   background: string,
@@ -18,6 +18,7 @@ export type ThemeType = {
 export const defaultTheme: ThemeType = {
   button: {
     primary: "blue",
+    color: "white",
   },
   color: "black",
   background: "white",

@@ -7,7 +7,11 @@ type ButtonProps = {
   name: string,
 };
 
-function baseButton({ onClick, name, classString }: ButtonProps & { classString: string }): React.Node {
+function baseButton({
+  onClick,
+  name,
+  classString,
+}: ButtonProps & { classString: string }): React.Node {
   const theme = useTheme();
   const classes = useButtonStyles(theme);
 
@@ -19,11 +23,11 @@ function baseButton({ onClick, name, classString }: ButtonProps & { classString:
 }
 
 export function Button({ onClick, name }: ButtonProps): React.Node {
-  return baseButton({ onClick, name, classString: "button" })
+  return baseButton({ onClick, name, classString: "button" });
 }
 
 export function Link({ onClick, name }: ButtonProps): React.Node {
-  return baseButton({ onClick, name, classString: "link" })
+  return baseButton({ onClick, name, classString: "link" });
 }
 
 const useButtonStyles = createUseStyles((theme) => ({
@@ -31,6 +35,7 @@ const useButtonStyles = createUseStyles((theme) => ({
     background: theme.button.primary,
     borderRadius: "10px",
     borderStyle: "none",
+    color: theme.button.color,
   },
   link: {
     border: 0,
