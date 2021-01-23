@@ -6,7 +6,7 @@ exports[`Button renders with button style 1`] = `
     class="button-0-2-1 button-d4-0-2-7"
     type="button"
   >
-    Click Me
+    Press Me
   </button>
 </div>
 `;

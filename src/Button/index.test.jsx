@@ -27,7 +27,7 @@ describe("Button", () => {
   it("renders with button style", () => {
     const container = render(
       <ThemeProvider theme={defaultTheme}>
-        <Button name="Click Me" style="button" />
+        <Button name="Press Me" style="button" />
       </ThemeProvider>
     );
     expect(container.baseElement.firstChild).toMatchSnapshot();
