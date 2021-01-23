@@ -1,23 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button renders 1`] = `
+exports[`Button renders with button style 1`] = `
+<div>
+  <button
+    class="button-0-2-1 button-d4-0-2-7"
+    type="button"
+  >
+    Click Me
+  </button>
+</div>
+`;
+
+exports[`Button renders with link style 1`] = `
+<div>
+  <button
+    class="link-0-2-2 link-d3-0-2-6"
+    type="button"
+  >
+    Click Me
+  </button>
+</div>
+`;
+
+exports[`Button renders with no style 1`] = `
 <div>
   <button
     class="button-0-2-1 button-d0-0-2-3"
     type="button"
   >
     Press Me
-  </button>
-</div>
-`;
-
-exports[`Link renders 1`] = `
-<div>
-  <button
-    class="link-0-2-2"
-    type="button"
-  >
-    Click Me
   </button>
 </div>
 `;

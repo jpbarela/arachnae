@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/addon-docs/blocks";
 import { action } from "@storybook/addon-actions";
-import { Button } from "../../src/Button";
+import { Button, Row } from "../../src/";
 
 <Meta
   title="Button"
@@ -15,10 +15,19 @@ import { Button } from "../../src/Button";
 
 # Button
 
-There are two main button components `<Button /> ` and `<Link />`. The functionality for both components is the same but
-`<Link />` is designed to look like a traditional web link.
+A button is the basic interative component in the library. The style property can be used to select between a button
+and more traditional web link.
 
-export const Template = (args) => <Button {...args} />;
+export const Template = (args) => (
+  <div>
+    <Row justifyContent="start">
+      This is a normal button <Button {...args} />
+    </Row>
+    <Row justifyContent="start">
+      This a link button <Button {...args} style="link" />
+    </Row>
+  </div>
+);
 
 <Story name="Button" args={{ name: "Press Me" }}>
   {Template.bind({})}
