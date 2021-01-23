@@ -911,7 +911,7 @@ type JestObjectType = {
    * (setTimeout, setInterval, clearTimeout, clearInterval, nextTick,
    * setImmediate and clearImmediate).
    */
-  useFakeTimers(mode?: 'modern' | 'legacy'): JestObjectType,
+  useFakeTimers(mode?: "modern" | "legacy"): JestObjectType,
   /**
    * Instructs Jest to use the real versions of the standard timer functions.
    */
@@ -923,7 +923,7 @@ type JestObjectType = {
   spyOn(
     object: Object,
     methodName: string,
-    accessType?: 'get' | 'set'
+    accessType?: "get" | "set"
   ): JestMockFn<any, any>,
   /**
    * Set the default timeout interval for tests and before/after hooks in milliseconds.

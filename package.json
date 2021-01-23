@@ -1,6 +1,6 @@
 {
   "name": "@jpbarela/arachnae",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "A simple React component library",
   "main": "dist/index.js",
   "files": [
@@ -12,7 +12,11 @@
     "build:flow": "flow-copy-source -i **/*.test.js -i **/*.test.jsx src dist",
     "test": "jest",
     "flow": "flow",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "prettier": "prettier --check .",
+    "prettier-fix": "prettier --write .",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
@@ -34,13 +38,19 @@
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-flow": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
+    "@storybook/addon-actions": "^6.1.14",
+    "@storybook/addon-essentials": "^6.1.14",
+    "@storybook/addon-links": "^6.1.14",
+    "@storybook/react": "^6.1.14",
     "@testing-library/react": "^11.0.4",
     "babel-jest": "^26.3.0",
+    "babel-loader": "^8.2.2",
     "babel-preset-minify": "^0.5.1",
     "flow-bin": "^0.135.0",
     "flow-copy-source": "^2.0.9",
     "flow-typed": "^3.2.1",
     "jest": "^26.4.2",
+    "prettier": "^2.2.1",
     "react": "^16.13.1",
     "react-app-polyfill": "^1.0.6",
     "react-dom": "^16.13.1",

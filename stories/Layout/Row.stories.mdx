@@ -1,0 +1,34 @@
+import { Meta, Story } from "@storybook/addon-docs/blocks";
+import { action } from "@storybook/addon-actions";
+import { Row } from "../../src/Layout";
+
+<Meta
+  title="Layout / Row"
+  component={Row}
+  argTypes={{
+    backgroundColor: { control: "color" },
+    justifyContent: {
+      control: {
+        type: "inline-radio",
+        options: ["center", "space-between", "start"],
+      },
+    },
+    children: {
+      table: { disable: true },
+    },
+  }}
+/>
+
+# Row
+
+A row is the basic layout component. The backgroundColor can be set using `backgroundColor` and the position of the elements in the row using `justifyContent`.
+
+export const Template = (args) => (
+  <Row {...args}>
+    <div>Div 1</div>
+    <div>Div 2</div>
+    <div>Div 3</div>
+  </Row>
+);
+
+<Story name="Row">{Template.bind({})}</Story>

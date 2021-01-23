@@ -16,6 +16,8 @@ jobs:
         run: npm install
       - name: Type Check
         run: npm run flow
+      - name: Format
+        run: npm run prettier
       - name: Test Project
         uses: paambaati/codeclimate-action@v2.6.0
         env:

@@ -1,5 +1,5 @@
 // @flow
-export { Button, Link } from "./Button";
+export { Button } from "./Button";
 export { DateInput, Input, NumericInput, SelectInput } from "./Input";
 export { Row } from "./Layout";
 export { Page } from "./Page";
