@@ -8,4 +8,4 @@ plugins:
       languages:
         python:
         javascript:
-          mass_threshold: 75
+          mass_threshold: 85
