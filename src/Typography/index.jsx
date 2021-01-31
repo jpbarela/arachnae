@@ -7,6 +7,10 @@ type TextProps = {
   children?: React.Node,
 };
 
+export type TextStyleProps = {
+  color?: string,
+};
+
 export function Title({ color, children }: TextProps): React.Node {
   const classes = useTextStyles({ color });
 
@@ -19,7 +23,9 @@ export function SectionHeading({ color, children }: TextProps): React.Node {
   return <h2 className={classes.text}>{children}</h2>;
 }
 
-const useTextStyles = createUseStyles({
+export const useTextStyles: (TextStyleProps) => {
+  text: string,
+} = createUseStyles({
   text: {
     color: ({ color }: { color: string }) => color,
   },

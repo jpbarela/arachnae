@@ -1,0 +1,46 @@
+import { Meta, Story } from "@storybook/addon-docs/blocks";
+import { action } from "@storybook/addon-actions";
+import { Form, Row, SubmitInput, TextInput } from "../../src/";
+
+<Meta
+  title="Form"
+  component={Form}
+  argTypes={{
+    onSubmit: { type: action("submit", { depth: 2 }) },
+    children: {
+      table: { disable: true },
+    },
+  }}
+/>
+
+# Forms
+
+Forms are managed via a hook based approach. Under the hood the system uses `react-hook-form` and contexts to enable a
+streamlined declarative API.
+
+Within eact `<Form>` ccomponent the inputs need to be uniqunely name and the name will be used as the property of the
+object passed to the `onSubmit` function.
+
+export const Template = (args) => (
+  <Form {...args}>
+    <Row>
+      <TextInput
+        name="testInput"
+        placeholder="Enter some text ..."
+        width="175px"
+      />
+    </Row>
+    <Row>
+      <TextInput
+        name="requiredInput"
+        placeholder="Fill me out"
+        required={true}
+      />
+    </Row>
+    <Row>
+      <SubmitInput display="Submit" />
+    </Row>
+  </Form>
+);
+
+<Story name="Form">{Template.bind({})}</Story>
