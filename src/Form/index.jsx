@@ -4,7 +4,8 @@ import { useForm } from "react-hook-form";
 import { createUseStyles } from "react-jss";
 import { useButtonStyles } from "../index";
 import type { ButtonStyleProps } from "../index";
-import { Row } from "../Layout";
+import { Row, useLayoutStyles } from "../Layout";
+import type { LayoutProps } from "../Layout";
 
 type FormProps<T> = {
   children: React.Node,
@@ -29,7 +30,7 @@ type SubmitProps = {
 type FormContextValue = {
   errors: any,
   handleSubmit: (() => void) => void,
-  register: () => void,
+  register: ({ required?: boolean }) => void,
 };
 
 const FormContext = React.createContext(({}: FormContextValue));
@@ -50,10 +51,10 @@ export function TextInput({
   defaultValue,
   required,
   width,
-}: InputProps & InputStyleProps): React.Node {
+}: InputProps & LayoutProps): React.Node {
   const { register, errors } = React.useContext(FormContext);
   const classes = useInputStyles();
-  const layoutClasses = useInputLayoutStyles({ width });
+  const layoutClasses = useLayoutStyles({ width });
 
   return (
     <div className={width ? layoutClasses.layout : null}>
@@ -95,10 +96,4 @@ const useInputStyles = createUseStyles((theme) => {
       width: "100%",
     },
   };
-});
-
-const useInputLayoutStyles = createUseStyles({
-  layout: {
-    width: ({ width }) => width,
-  },
 });

@@ -3,7 +3,7 @@
 exports[`Row renders 1`] = `
 <div>
   <div
-    class="row-0-2-1 row-d0-0-2-2"
+    class="row-0-2-1 row-d0-0-2-2, layout-0-2-3 layout-d0-0-2-4, "
   >
     I'm a row
   </div>

@@ -4,6 +4,11 @@ import { createUseStyles } from "react-jss";
 
 type FlexAlignType = "center" | "space-between" | "start";
 
+export type LayoutProps = {
+  height?: string,
+  width?: string,
+};
+
 type RowType = {
   justifyContent: FlexAlignType,
   backgroundColor?: string,
@@ -16,10 +21,17 @@ export function Row({
   backgroundColor,
   children,
   className,
-}: RowType): React.Node {
+  height,
+  width,
+}: RowType & LayoutProps): React.Node {
   const classes = useRowStyles({ backgroundColor, justifyContent });
+  const layoutClasses = useLayoutStyles({ height, width });
 
-  return <div className={[classes.row, className].join(", ")}>{children}</div>;
+  return (
+    <div className={[classes.row, layoutClasses.layout, className].join(", ")}>
+      {children}
+    </div>
+  );
 }
 
 Row.defaultProps = {
@@ -34,5 +46,14 @@ const useRowStyles = createUseStyles({
       justifyContent,
     backgroundColor: ({ backgroundColor }: { backgroundColor: string }) =>
       backgroundColor,
+  },
+});
+
+export const useLayoutStyles: (LayoutProps) => {
+  layout: string,
+} = createUseStyles({
+  layout: {
+    height: ({ height }) => height,
+    width: ({ width }) => width,
   },
 });
