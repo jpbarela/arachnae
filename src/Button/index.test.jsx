@@ -1,35 +1,21 @@
 // @flow
 import * as React from "react";
-import { render } from "@testing-library/react";
+import { render } from "../test-utils";
 import { Button } from "./index";
-import { ThemeProvider } from "react-jss";
-import { defaultTheme } from "../Theme";
 
 describe("Button", () => {
   it("renders with no style", () => {
-    const container = render(
-      <ThemeProvider theme={defaultTheme}>
-        <Button name="Press Me" />
-      </ThemeProvider>
-    );
+    const container = render(<Button name="Press Me" />);
     expect(container.baseElement.firstChild).toMatchSnapshot();
   });
 
   it("renders with link style", () => {
-    const container = render(
-      <ThemeProvider theme={defaultTheme}>
-        <Button name="Click Me" style="link" />
-      </ThemeProvider>
-    );
+    const container = render(<Button name="Click Me" style="link" />);
     expect(container.baseElement.firstChild).toMatchSnapshot();
   });
 
   it("renders with button style", () => {
-    const container = render(
-      <ThemeProvider theme={defaultTheme}>
-        <Button name="Press Me" style="button" />
-      </ThemeProvider>
-    );
+    const container = render(<Button name="Press Me" style="button" />);
     expect(container.baseElement.firstChild).toMatchSnapshot();
   });
 });
