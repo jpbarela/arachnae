@@ -1,5 +1,6 @@
 // @flow
-export { Button } from "./Button";
+export { Button, useButtonStyles } from "./Button";
+export type {ButtonStyleProps} from "./Button";
 export { Form, SubmitInput, TextInput } from "./Form";
 export { DateInput, Input, NumericInput, SelectInput } from "./Input";
 export { Row } from "./Layout";
@@ -12,6 +13,7 @@ export {
   TableHeader,
   TableRow,
 } from "./Table";
-export { SectionHeading, Title } from "./Typography";
+export { SectionHeading, Title, useTextStyles } from "./Typography";
+export type { TextStyleProps } from "./Typography";
 export type { ThemeType } from "./Theme";
 export { defaultTheme } from "./Theme";

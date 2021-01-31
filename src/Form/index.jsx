@@ -2,6 +2,8 @@
 import * as React from "react";
 import { useForm } from "react-hook-form";
 import { createUseStyles } from "react-jss"
+import { useButtonStyles } from "../index"
+import type { ButtonStyleProps } from "../index"
 
 type FormProps<T> = {
   children: React.Node,
@@ -16,7 +18,6 @@ type InputProps = {
 
 type SubmitProps = {
   display: string,
-  color: string,
 };
 
 type FormContextValue = {
@@ -26,7 +27,7 @@ type FormContextValue = {
 
 const FormContext = React.createContext(({}: FormContextValue));
 
-export function Form({ children, onSubmit }: FormProps<T>) {
+export function Form<T>({ children, onSubmit }: FormProps<T>): React.Node {
   const { register, handleSubmit } = useForm();
 
   return (
@@ -36,7 +37,7 @@ export function Form({ children, onSubmit }: FormProps<T>) {
   );
 }
 
-export function TextInput({ name, placholder, defaultValue }: InputProps) {
+export function TextInput({ name, placholder, defaultValue }: InputProps): React.Node {
   const {register} = React.useContext(FormContext)
 
   return (
@@ -49,19 +50,8 @@ export function TextInput({ name, placholder, defaultValue }: InputProps) {
   );
 }
 
-export function SubmitInput({ display, color }: SubmitProps) {
-  const classes = useFormStyles({color});
+export function SubmitInput({ display, color }: SubmitProps & ButtonStyleProps): React.Node {
+  const classes = useButtonStyles({color});
 
-  return <input type="submit" value={display} className={classes.submit}/>;
+  return <input type="submit" value={display} className={classes.button}/>;
 }
-
-const useFormStyles = createUseStyles((theme) => {
-  return {
-    submit: {
-      background: theme.button.primary,
-      borderRadius: "10px",
-      borderStyle: "none",
-      color: ({ color }) => color || theme.button.color,
-    },
-  };
-});
