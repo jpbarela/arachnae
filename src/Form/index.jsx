@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { createUseStyles } from "react-jss";
 import { useButtonStyles } from "../index";
 import type { ButtonStyleProps } from "../index";
+import { Row } from "../Layout";
 
 type FormProps<T> = {
   children: React.Node,
@@ -14,6 +15,11 @@ type InputProps = {
   name: string,
   defaultValue?: string,
   placeholder?: string,
+  required?: boolean,
+};
+
+type InputLayoutProps = {
+  width: string,
 };
 
 type SubmitProps = {
@@ -21,6 +27,7 @@ type SubmitProps = {
 };
 
 type FormContextValue = {
+  errors: any,
   handleSubmit: (() => void) => void,
   register: () => void,
 };
@@ -28,10 +35,10 @@ type FormContextValue = {
 const FormContext = React.createContext(({}: FormContextValue));
 
 export function Form<T>({ children, onSubmit }: FormProps<T>): React.Node {
-  const { register, handleSubmit } = useForm();
+  const { errors, handleSubmit, register } = useForm();
 
   return (
-    <FormContext.Provider value={{ register, handleSubmit }}>
+    <FormContext.Provider value={{ errors, handleSubmit, register }}>
       <form onSubmit={handleSubmit(onSubmit)}>{children}</form>
     </FormContext.Provider>
   );
@@ -41,18 +48,26 @@ export function TextInput({
   name,
   placeholder,
   defaultValue,
-}: InputProps): React.Node {
-  const { register } = React.useContext(FormContext);
+  required,
+  width,
+}: InputProps & InputStyleProps): React.Node {
+  const { register, errors } = React.useContext(FormContext);
   const classes = useInputStyles();
+  const layoutClasses = useInputLayoutStyles({ width });
 
   return (
-    <input
-      name={name}
-      ref={register}
-      defaultValue={defaultValue}
-      placeholder={placeholder}
-      className={classes.input}
-    />
+    <div className={width ? layoutClasses.layout : null}>
+      <Row>
+        <input
+          name={name}
+          ref={register({ required })}
+          defaultValue={defaultValue}
+          placeholder={placeholder}
+          className={classes.input}
+        />
+      </Row>
+      {errors[name] ? <Row className={classes.error}>Required</Row> : null}
+    </div>
   );
 }
 
@@ -67,15 +82,23 @@ export function SubmitInput({
 
 const useInputStyles = createUseStyles((theme) => {
   return {
+    error: {
+      color: theme.error,
+      fontSize: "small",
+      width: "100%",
+    },
     input: {
       borderTop: "0",
       borderLeft: "0",
       borderRight: "0",
       borderBottom: `2px solid ${theme.input.borderColor}`,
+      width: "100%",
     },
   };
 });
 
-const useInputStyleStyles = createUseStyles({
-  width: ({ width }) => width,
+const useInputLayoutStyles = createUseStyles({
+  layout: {
+    width: ({ width }) => width,
+  },
 });

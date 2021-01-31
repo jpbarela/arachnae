@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/addon-docs/blocks";
 import { action } from "@storybook/addon-actions";
-import { Form, SubmitInput, TextInput } from "../../src/";
+import { Form, Row, SubmitInput, TextInput } from "../../src/";
 
 <Meta
   title="Form"
@@ -23,8 +23,23 @@ object passed to the `onSubmit` function.
 
 export const Template = (args) => (
   <Form {...args}>
-    <TextInput name="testInput" placeholder="Enter some text ..." />
-    <SubmitInput display="Submit" />
+    <Row>
+      <TextInput
+        name="testInput"
+        placeholder="Enter some text ..."
+        width="175px"
+      />
+    </Row>
+    <Row>
+      <TextInput
+        name="requiredInput"
+        placeholder="Fill me out"
+        required={true}
+      />
+    </Row>
+    <Row>
+      <SubmitInput display="Submit" />
+    </Row>
   </Form>
 );
 

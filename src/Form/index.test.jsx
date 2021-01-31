@@ -24,3 +24,26 @@ describe("SubmitInput", () => {
     );
   });
 });
+
+describe("TextInput", () => {
+  test("required inputs stop submission", async () => {
+    const submitHandlerMock = jest.fn();
+    const form = render(
+      <Form onSubmit={submitHandlerMock}>
+        <TextInput
+          name="testInput"
+          placeholder="Enter data here"
+          required={true}
+        />
+        <SubmitInput display="Submit" />
+      </Form>
+    );
+
+    const submitElement = screen.getByText(/Submit/);
+    fireEvent.click(submitElement);
+    await waitFor(() =>
+      expect(screen.getAllByText(/Required/i)).toHaveLength(1)
+    );
+    expect(submitHandlerMock).not.toHaveBeenCalled();
+  });
+});

@@ -11,6 +11,7 @@ export type ThemeType = {
   background: string,
   button: ButtonThemeType,
   color: string,
+  error: string,
   fontFamily: string,
   input: InputType,
 };
@@ -22,6 +23,7 @@ export const defaultTheme: ThemeType = {
     color: "white",
   },
   color: "black",
+  error: "red",
   fontFamily: "Helvetica, sans-serif",
   input: {
     borderColor: "blue",
