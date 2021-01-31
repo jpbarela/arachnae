@@ -1,9 +1,9 @@
 // @flow
 import * as React from "react";
 import { useForm } from "react-hook-form";
-import { createUseStyles } from "react-jss"
-import { useButtonStyles } from "../index"
-import type { ButtonStyleProps } from "../index"
+import { createUseStyles } from "react-jss";
+import { useButtonStyles } from "../index";
+import type { ButtonStyleProps } from "../index";
 
 type FormProps<T> = {
   children: React.Node,
@@ -37,8 +37,12 @@ export function Form<T>({ children, onSubmit }: FormProps<T>): React.Node {
   );
 }
 
-export function TextInput({ name, placholder, defaultValue }: InputProps): React.Node {
-  const {register} = React.useContext(FormContext)
+export function TextInput({
+  name,
+  placholder,
+  defaultValue,
+}: InputProps): React.Node {
+  const { register } = React.useContext(FormContext);
 
   return (
     <input
@@ -50,8 +54,11 @@ export function TextInput({ name, placholder, defaultValue }: InputProps): React
   );
 }
 
-export function SubmitInput({ display, color }: SubmitProps & ButtonStyleProps): React.Node {
-  const classes = useButtonStyles({color});
+export function SubmitInput({
+  display,
+  color,
+}: SubmitProps & ButtonStyleProps): React.Node {
+  const classes = useButtonStyles({ color });
 
-  return <input type="submit" value={display} className={classes.button}/>;
+  return <input type="submit" value={display} className={classes.button} />;
 }
