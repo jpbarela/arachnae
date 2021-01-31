@@ -28,7 +28,11 @@ export function Row({
   const layoutClasses = useLayoutStyles({ height, width });
 
   return (
-    <div className={[classes.row, layoutClasses.layout, className].join(", ")}>
+    <div
+      className={[classes.row, layoutClasses.layout, className]
+        .join(" ")
+        .trim()}
+    >
       {children}
     </div>
   );
