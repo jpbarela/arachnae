@@ -6,7 +6,7 @@ import { Form, SubmitInput, TextInput } from "../../src/";
   title="Form"
   component={Form}
   argTypes={{
-    onSubmit: { type: action("submit", { depth: 2}) },
+    onSubmit: { type: action("submit", { depth: 2 }) },
     children: {
       table: { disable: true },
     },
@@ -22,12 +22,10 @@ Within eact `<Form>` ccomponent the inputs need to be uniqunely name and the nam
 object passed to the `onSubmit` function.
 
 export const Template = (args) => (
-  <Form {...args} >
-    <TextInput name='testInput' />
-    <SubmitInput dsiplay="Submit"/>
+  <Form {...args}>
+    <TextInput name="testInput" placeholder="Enter some text ..." />
+    <SubmitInput display="Submit" />
   </Form>
 );
 
-<Story name="Form">
-  {Template.bind({})}
-</Story>
+<Story name="Form">{Template.bind({})}</Story>

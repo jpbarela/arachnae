@@ -13,7 +13,7 @@ type FormProps<T> = {
 type InputProps = {
   name: string,
   defaultValue?: string,
-  placholder?: string,
+  placeholder?: string,
 };
 
 type SubmitProps = {
@@ -39,17 +39,19 @@ export function Form<T>({ children, onSubmit }: FormProps<T>): React.Node {
 
 export function TextInput({
   name,
-  placholder,
+  placeholder,
   defaultValue,
 }: InputProps): React.Node {
   const { register } = React.useContext(FormContext);
+  const classes = useInputStyles();
 
   return (
     <input
       name={name}
       ref={register}
       defaultValue={defaultValue}
-      placeholder={placholder}
+      placeholder={placeholder}
+      className={classes.input}
     />
   );
 }
@@ -62,3 +64,18 @@ export function SubmitInput({
 
   return <input type="submit" value={display} className={classes.button} />;
 }
+
+const useInputStyles = createUseStyles((theme) => {
+  return {
+    input: {
+      borderTop: "0",
+      borderLeft: "0",
+      borderRight: "0",
+      borderBottom: `2px solid ${theme.input.borderColor}`,
+    },
+  };
+});
+
+const useInputStyleStyles = createUseStyles({
+  width: ({ width }) => width,
+});

@@ -7,11 +7,7 @@ describe("SubmitInput", () => {
     const submitHandlerMock = jest.fn();
     const form = render(
       <Form onSubmit={submitHandlerMock}>
-        <TextInput
-          name="testInput"
-          placholder="Enter data here"
-          defaultValue={"your data"}
-        />
+        <TextInput name="testInput" placeholder="Enter data here" />
         <SubmitInput display="Submit" />
       </Form>
     );
