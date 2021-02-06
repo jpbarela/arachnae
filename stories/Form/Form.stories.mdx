@@ -3,7 +3,7 @@ import { action } from "@storybook/addon-actions";
 import { Form, Row, SubmitInput, TextInput } from "../../src/";
 
 <Meta
-  title="Form"
+  title="Form / Form"
   component={Form}
   argTypes={{
     onSubmit: { type: action("submit", { depth: 2 }) },
@@ -18,7 +18,7 @@ import { Form, Row, SubmitInput, TextInput } from "../../src/";
 Forms are managed via a hook based approach. Under the hood the system uses `react-hook-form` and contexts to enable a
 streamlined declarative API.
 
-Within eact `<Form>` ccomponent the inputs need to be uniqunely name and the name will be used as the property of the
+Within each `<Form>` ccomponent the inputs need to be uniqunely name and the name will be used as the property of the
 object passed to the `onSubmit` function.
 
 export const Template = (args) => (
@@ -38,7 +38,7 @@ export const Template = (args) => (
       />
     </Row>
     <Row>
-      <SubmitInput display="Submit" />
+      <SubmitInput name="Submit" />
     </Row>
   </Form>
 );

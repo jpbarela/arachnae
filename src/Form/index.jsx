@@ -14,8 +14,22 @@ type FormProps<T> = {
 
 type InputProps = {
   name: string,
+  testID?: string,
   defaultValue?: string,
   placeholder?: string,
+  required?: boolean,
+};
+
+type OptionType = {
+  value: string,
+  name: string,
+  testID?: string,
+};
+
+type SelectInputType = {
+  name: string,
+  options: OptionType[],
+  testID?: string,
   required?: boolean,
 };
 
@@ -45,13 +59,21 @@ export function Form<T>({ children, onSubmit }: FormProps<T>): React.Node {
   );
 }
 
-export function TextInput({
+function BaseInput({
   name,
   placeholder,
   defaultValue,
   required,
   width,
-}: InputProps & LayoutProps): React.Node {
+  registerOptions,
+  type,
+  testID,
+  step,
+}: InputProps &
+  LayoutProps & {
+    registerOptions?: { valueAsNumber: Boolean },
+    type?: string,
+  }): React.Node {
   const { register, errors } = React.useContext(FormContext);
   const classes = useInputStyles();
   const layoutClasses = useLayoutStyles({ width });
@@ -61,24 +83,110 @@ export function TextInput({
       <Row>
         <input
           name={name}
-          ref={register({ required })}
+          ref={register(
+            Object.assign(
+              { required: { value: !!required, message: "Required" } },
+              registerOptions
+            )
+          )}
           defaultValue={defaultValue}
           placeholder={placeholder}
           className={classes.input}
+          type={type}
+          data-testid={testID}
+          step={step}
         />
       </Row>
-      {errors[name] ? <Row className={classes.error}>Required</Row> : null}
+      {errors[name] ? (
+        <Row className={classes.error}>{errors[name].message}</Row>
+      ) : null}
+    </div>
+  );
+}
+
+export function DateInput(props: InputProps & LayoutProps) {
+  return (
+    <BaseInput
+      {...props}
+      registerOptions={{
+        pattern: { value: /\d{4}-\d{2}-\d{2}/, message: "Format YYYY-MM-DD" },
+        valueAsDate: true,
+      }}
+      type="date"
+    />
+  );
+}
+
+export function NumericInput(props: InputProps & LayoutProps) {
+  return (
+    <BaseInput
+      {...props}
+      registerOptions={{ valueAsNumber: true }}
+      type="number"
+      step="any"
+    />
+  );
+}
+
+export function SelectInput({
+  name,
+  options,
+  required,
+  testID,
+  width,
+}: SelectInputType & InputLayoutProps): React.Node {
+  const { register, errors } = React.useContext(FormContext);
+  const classes = useInputStyles();
+  const layoutClasses = useLayoutStyles({ width });
+
+  return (
+    <div className={width ? layoutClasses.layout : null}>
+      <Row>
+        <select
+          name={name}
+          ref={register({ required: "Required" })}
+          data-testid={testID}
+          defaultValue=""
+          className={classes.select}
+        >
+          <option value="" disabled />
+          {options.map((option) => (
+            <option
+              key={option.value}
+              value={option.value}
+              data-testid={option.testID}
+            >
+              {option.name}
+            </option>
+          ))}
+        </select>
+      </Row>
+      {errors[name] ? (
+        <Row className={classes.error}>{errors[name].message}</Row>
+      ) : null}
     </div>
   );
 }
 
 export function SubmitInput({
-  display,
+  name,
   color,
+  testID,
 }: SubmitProps & ButtonStyleProps): React.Node {
   const classes = useButtonStyles({ color });
 
-  return <input type="submit" value={display} className={classes.button} />;
+  return (
+    <input
+      type="submit"
+      value={name}
+      className={classes.button}
+      data-testid={testID}
+    />
+  );
+}
+
+export function TextInput(props: InputProps & LayoutProps) {
+  return <BaseInput {...props} />;
 }
 
 const useInputStyles = createUseStyles((theme) => {
@@ -95,5 +203,9 @@ const useInputStyles = createUseStyles((theme) => {
       borderBottom: `2px solid ${theme.input.borderColor}`,
       width: "100%",
     },
+    select: {
+      width: "100%",
+    },
   };
 });
+
