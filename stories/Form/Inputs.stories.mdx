@@ -1,0 +1,71 @@
+import { Meta, Story } from "@storybook/addon-docs/blocks";
+import { action } from "@storybook/addon-actions";
+import {
+  DateInput,
+  Form,
+  NumericInput,
+  Row,
+  SelectInput,
+  SubmitInput,
+  TextInput,
+} from "../../src/";
+
+<Meta
+  title="Form / Inputs"
+  component={TextInput}
+  argTypes={{
+    onSubmit: { type: action("submit", { depth: 2 }) },
+    children: {
+      table: { disable: true },
+    },
+  }}
+/>
+
+# Inputs
+
+There are a variety of inputs available in the library. The inputs are designed to provide type safe inputs into forms.
+
+- TextInput is the basic input and don't include any validations
+- DateInput uses the HTML5 date types, there is a polyfill that is needed for support of Safari and IE < 11
+- NumericInput uses the HTML5 numeric type
+- SelectInputh offers a standard option
+
+Since the library tries to use HTML5 standards wheneever possible the implementation may differ slightly across
+browsers.
+
+export const Template = (args) => (
+  <Form {...args}>
+    <Row>
+      <TextInput
+        name="testInput"
+        placeholder="Enter some text ..."
+        width="175px"
+      />
+    </Row>
+    <Row>
+      <NumericInput
+        name="requiredInput"
+        placeholder="Fill me out"
+        required={true}
+      />
+    </Row>
+    <Row>
+      <SelectInput
+        name="selectInput"
+        options={[
+          { value: "a", name: "Option A", testID: "value_a" },
+          { value: "b", name: "Option B", testID: "value_b" },
+        ]}
+        width="400px"
+      />
+    </Row>
+    <Row>
+      <DateInput name="dateInput" placeholder="Put in a date" />
+    </Row>
+    <Row>
+      <SubmitInput name="Submit" />
+    </Row>
+  </Form>
+);
+
+<Story name="Inputs">{Template.bind({})}</Story>

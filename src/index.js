@@ -1,10 +1,17 @@
 // @flow
 export { Button, useButtonStyles } from "./Button";
 export type { ButtonStyleProps } from "./Button";
-export { Form, SubmitInput, TextInput } from "./Form";
-export { DateInput, Input, NumericInput, SelectInput } from "./Input";
+export {
+  DateInput,
+  Form,
+  NumericInput,
+  SelectInput,
+  SubmitInput,
+  TextInput,
+} from "./Form";
 export { Row } from "./Layout";
 export { Page } from "./Page";
+export * as Poylfills from "./Polyfills";
 export {
   Table,
   TableBody,
