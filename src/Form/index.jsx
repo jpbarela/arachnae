@@ -88,7 +88,11 @@ function BaseInput({
   const layoutClasses = useLayoutStyles({ width });
 
   return (
-    <div className={width ? layoutClasses.layout : null}>
+    <div
+      className={[width ? layoutClasses.layout : null, classes.container].join(
+        " "
+      )}
+    >
       <Row>
         <input
           name={name}
@@ -150,7 +154,11 @@ export function SelectInput({
   const layoutClasses = useLayoutStyles({ width });
 
   return (
-    <div className={width ? layoutClasses.layout : null}>
+    <div
+      className={[width ? layoutClasses.layout : null, classes.container].join(
+        " "
+      )}
+    >
       <Row>
         <select
           name={name}
@@ -201,6 +209,9 @@ export function TextInput(props: InputProps & LayoutProps): React.Node {
 
 const useInputStyles = createUseStyles((theme) => {
   return {
+    container: {
+      paddingRight: "1rem",
+    },
     error: {
       color: theme.error,
       fontSize: "small",
