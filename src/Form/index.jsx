@@ -38,13 +38,16 @@ type InputLayoutProps = {
 };
 
 type SubmitProps = {
-  display: string,
+  name: string,
+  testID: string,
 };
 
 type FormContextValue = {
   errors: any,
   handleSubmit: (() => void) => void,
-  register: ({ required?: boolean }) => void,
+  register: ({
+    required: { value: boolean, message: string } | boolean,
+  }) => void,
 };
 
 const FormContext = React.createContext(({}: FormContextValue));
@@ -71,7 +74,13 @@ function BaseInput({
   step,
 }: InputProps &
   LayoutProps & {
-    registerOptions?: { valueAsNumber: Boolean },
+    registerOptions?: {
+      valueAsNumber?: boolean,
+      valueAsdate?: boolean,
+      pattern?: { value: RegExp, message: string },
+    },
+    required?: boolean,
+    step?: string,
     type?: string,
   }): React.Node {
   const { register, errors } = React.useContext(FormContext);
@@ -85,6 +94,7 @@ function BaseInput({
           name={name}
           ref={register(
             Object.assign(
+              {},
               { required: { value: !!required, message: "Required" } },
               registerOptions
             )
@@ -104,7 +114,7 @@ function BaseInput({
   );
 }
 
-export function DateInput(props: InputProps & LayoutProps) {
+export function DateInput(props: InputProps & LayoutProps): React.Node {
   return (
     <BaseInput
       {...props}
@@ -117,7 +127,7 @@ export function DateInput(props: InputProps & LayoutProps) {
   );
 }
 
-export function NumericInput(props: InputProps & LayoutProps) {
+export function NumericInput(props: InputProps & LayoutProps): React.Node {
   return (
     <BaseInput
       {...props}
@@ -144,7 +154,7 @@ export function SelectInput({
       <Row>
         <select
           name={name}
-          ref={register({ required: "Required" })}
+          ref={register({ required: { value: true, message: "Required" } })}
           data-testid={testID}
           defaultValue=""
           className={classes.select}
@@ -185,7 +195,7 @@ export function SubmitInput({
   );
 }
 
-export function TextInput(props: InputProps & LayoutProps) {
+export function TextInput(props: InputProps & LayoutProps): React.Node {
   return <BaseInput {...props} />;
 }
 
@@ -208,4 +218,3 @@ const useInputStyles = createUseStyles((theme) => {
     },
   };
 });
-
