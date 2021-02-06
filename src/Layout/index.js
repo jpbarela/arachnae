@@ -11,12 +11,14 @@ export type LayoutProps = {
 
 type RowType = {
   justifyContent: FlexAlignType,
+  alignItems: FlexAlignType,
   backgroundColor?: string,
   children?: React.Node,
   className?: string,
 };
 
 export function Row({
+  alignItems,
   justifyContent,
   backgroundColor,
   children,
@@ -24,7 +26,7 @@ export function Row({
   height,
   width,
 }: RowType & LayoutProps): React.Node {
-  const classes = useRowStyles({ backgroundColor, justifyContent });
+  const classes = useRowStyles({ alignItems, backgroundColor, justifyContent });
   const layoutClasses = useLayoutStyles({ height, width });
 
   return (
@@ -39,13 +41,15 @@ export function Row({
 }
 
 Row.defaultProps = {
+  alignItems: "start",
   justifyContent: "space-between",
 };
 
 const useRowStyles = createUseStyles({
   row: {
     display: "flex",
-    padding: "5px 0",
+    padding: "0.375rem 0",
+    alignItems: ({ alignItems }: { alignItems: FlexAlignType }) => alignItems,
     justifyContent: ({ justifyContent }: { justifyContent: FlexAlignType }) =>
       justifyContent,
     backgroundColor: ({ backgroundColor }: { backgroundColor: string }) =>

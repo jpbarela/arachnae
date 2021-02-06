@@ -3,7 +3,7 @@
 exports[`Button renders with button style 1`] = `
 <div>
   <button
-    class="button-0-2-1 button-d4-0-2-7"
+    class="button-0-2-1 button-d6-0-2-10 common-0-2-2 common-d7-0-2-11"
     type="button"
   >
     Press Me
@@ -14,7 +14,7 @@ exports[`Button renders with button style 1`] = `
 exports[`Button renders with link style 1`] = `
 <div>
   <button
-    class="link-0-2-2 link-d3-0-2-6"
+    class="button-0-2-1 button-d3-0-2-7 common-0-2-2 common-d4-0-2-8"
     type="button"
   >
     Click Me
@@ -25,7 +25,7 @@ exports[`Button renders with link style 1`] = `
 exports[`Button renders with no style 1`] = `
 <div>
   <button
-    class="button-0-2-1 button-d0-0-2-3"
+    class="button-0-2-1 button-d0-0-2-4 common-0-2-2 common-d1-0-2-5"
     type="button"
   >
     Press Me

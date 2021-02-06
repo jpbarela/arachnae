@@ -20,11 +20,19 @@ and more traditional web link.
 
 export const Template = (args) => (
   <div>
-    <Row justifyContent="start">
+    <Row justifyContent="start" alignItems="center">
       This is a normal button <Button {...args} />
     </Row>
     <Row justifyContent="start">
-      This a link button <Button {...args} style="link" />
+      This a link button{" "}
+      <Button
+        {...args}
+        type="link"
+        marginLeft="0.5rem"
+        marginRight="0"
+        marginTop="0"
+        marginBottom="0"
+      />
     </Row>
   </div>
 );
