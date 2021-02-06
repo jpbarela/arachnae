@@ -222,9 +222,11 @@ const useInputStyles = createUseStyles((theme) => {
       borderLeft: "0",
       borderRight: "0",
       borderBottom: `2px solid ${theme.input.borderColor}`,
+      fontSize: "1rem",
       width: "100%",
     },
     select: {
+      fontSize: "1rem",
       width: "100%",
     },
   };
