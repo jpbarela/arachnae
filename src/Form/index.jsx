@@ -39,14 +39,17 @@ type InputLayoutProps = {
 
 type SubmitProps = {
   name: string,
-  testID: string,
+  testID?: string,
 };
 
 type FormContextValue = {
   errors: any,
   handleSubmit: (() => void) => void,
   register: ({
-    required: { value: boolean, message: string } | boolean,
+    required: { value: boolean, message: string },
+    valueAsNumber?: boolean,
+    valueAsdate?: boolean,
+    pattern?: { value: RegExp, message: string },
   }) => void,
 };
 
