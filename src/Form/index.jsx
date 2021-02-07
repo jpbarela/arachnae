@@ -39,6 +39,7 @@ type InputLayoutProps = {
 
 type SubmitProps = {
   name: string,
+  disabled?: boolean,
   testID?: string,
 };
 
@@ -191,17 +192,32 @@ export function SelectInput({
 
 export function SubmitInput({
   name,
+  disabled,
   color,
+  margin,
+  marginRight,
+  marginLeft,
+  marginTop,
+  marginBottom,
   testID,
 }: SubmitProps & ButtonStyleProps): React.Node {
-  const classes = useButtonStyles({ color });
+  const classes = useButtonStyles({
+    color,
+    disabled,
+    margin,
+    marginRight,
+    marginLeft,
+    marginTop,
+    marginBottom,
+  });
 
   return (
     <input
       type="submit"
       value={name}
-      className={classes.button}
+      className={[classes.button, classes.common].join(" ")}
       data-testid={testID}
+      disabled={disabled}
     />
   );
 }
