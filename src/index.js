@@ -9,7 +9,8 @@ export {
   SubmitInput,
   TextInput,
 } from "./Form";
-export { Row } from "./Layout";
+export { Row, useContainerStyles } from "./Layout";
+export type { ContainerProps } from "./Layout";
 export { Page } from "./Page";
 export * as Poylfills from "./Polyfills";
 export {
