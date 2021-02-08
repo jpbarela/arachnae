@@ -4,11 +4,12 @@ import { useForm } from "react-hook-form";
 import { createUseStyles } from "react-jss";
 import { useButtonStyles } from "../index";
 import type { ButtonStyleProps } from "../index";
-import { Row, useLayoutStyles } from "../Layout";
-import type { LayoutProps } from "../Layout";
+import { Row, useContainerStyles, useLayoutStyles } from "../Layout";
+import type { ContainerProps, LayoutProps } from "../Layout";
 
 type FormProps<T> = {
   children: React.Node,
+  container?: ContainerProps,
   onSubmit: (T) => void,
 };
 
@@ -33,10 +34,6 @@ type SelectInputType = {
   required?: boolean,
 };
 
-type InputLayoutProps = {
-  width: string,
-};
-
 type SubmitProps = {
   name: string,
   disabled?: boolean,
@@ -56,12 +53,22 @@ type FormContextValue = {
 
 const FormContext = React.createContext(({}: FormContextValue));
 
-export function Form<T>({ children, onSubmit }: FormProps<T>): React.Node {
+export function Form<T>({
+  children,
+  container,
+  onSubmit,
+}: FormProps<T>): React.Node {
+  const containerClasses = useContainerStyles(container || {});
   const { errors, handleSubmit, register } = useForm();
 
   return (
     <FormContext.Provider value={{ errors, handleSubmit, register }}>
-      <form onSubmit={handleSubmit(onSubmit)}>{children}</form>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className={containerClasses.container}
+      >
+        {children}
+      </form>
     </FormContext.Provider>
   );
 }
@@ -152,7 +159,7 @@ export function SelectInput({
   required,
   testID,
   width,
-}: SelectInputType & InputLayoutProps): React.Node {
+}: SelectInputType & LayoutProps): React.Node {
   const { register, errors } = React.useContext(FormContext);
   const classes = useInputStyles();
   const layoutClasses = useLayoutStyles({ width });
