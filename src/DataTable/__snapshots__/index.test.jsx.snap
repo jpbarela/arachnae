@@ -51,7 +51,7 @@ exports[`Button renders 1`] = `
           colspan="1"
           rowspan="1"
         >
-          Sun Mar 14 2021 00:03:18 GMT-0700 (Mountain Standard Time)
+          Fri Jan 01 2021
         </td>
       </tr>
       <tr>
@@ -74,7 +74,7 @@ exports[`Button renders 1`] = `
           colspan="1"
           rowspan="1"
         >
-          Sun Mar 14 2021 00:03:18 GMT-0700 (Mountain Standard Time)
+          Mon Feb 01 2021
         </td>
       </tr>
       <tr>
@@ -97,7 +97,7 @@ exports[`Button renders 1`] = `
           colspan="1"
           rowspan="1"
         >
-          Sun Mar 14 2021 00:03:18 GMT-0700 (Mountain Standard Time)
+          Mon Mar 01 2021
         </td>
       </tr>
     </tbody>

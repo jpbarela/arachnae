@@ -24,9 +24,9 @@ describe("Button", () => {
           },
         ]}
         data={[
-          ["a", 1, new Date(2021, 0, 1)],
-          ["b", 2, new Date(2021, 1, 1)],
-          ["c", 3, new Date(2021, 2, 1)],
+          ["a", 1, new Date(2021, 0, 1).toDateString()],
+          ["b", 2, new Date(2021, 1, 1).toDateString()],
+          ["c", 3, new Date(2021, 2, 1).toDateString()],
         ]}
       />
     );
