@@ -3,17 +3,19 @@
 exports[`Row renders 1`] = `
 <div>
   <table
-    class="table-0-2-2"
+    class="table-0-2-1"
   >
     <thead>
       <tr>
         <th
+          class="tableHeader-0-2-3 tableHeader-d3-0-2-7"
           colspan="1"
           rowspan="1"
         >
           Name
         </th>
         <th
+          class="tableHeader-0-2-3 tableHeader-d5-0-2-9"
           colspan="1"
           rowspan="1"
         >
@@ -24,14 +26,14 @@ exports[`Row renders 1`] = `
     <tbody>
       <tr>
         <td
-          class="tableData-0-2-3 "
+          class="tableData-0-2-2 tableData-d6-0-2-10"
           colspan="1"
           rowspan="1"
         >
           Joe
         </td>
         <td
-          class="tableData-0-2-3 "
+          class="tableData-0-2-2 tableData-d8-0-2-12"
           colspan="1"
           rowspan="1"
         >
@@ -40,14 +42,14 @@ exports[`Row renders 1`] = `
       </tr>
       <tr>
         <td
-          class="tableData-0-2-3 "
+          class="tableData-0-2-2 tableData-d10-0-2-14"
           colspan="1"
           rowspan="1"
         >
           Jane
         </td>
         <td
-          class="tableData-0-2-3 "
+          class="tableData-0-2-2 tableData-d12-0-2-16"
           colspan="1"
           rowspan="1"
         >

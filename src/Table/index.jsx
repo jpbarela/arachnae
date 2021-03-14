@@ -1,16 +1,19 @@
 // @flow
 import * as React from "react";
 import { createUseStyles } from "react-jss";
+import type { TextAlign } from "../commonTypes";
 
 type TableProps = {
   children?: React.Node,
 };
 
 type TableDataProps = {
-  center?: boolean,
+  borderWidth?: string,
   colSpan?: number,
   rowSpan?: number,
   styles?: any,
+  textAlign?: TextAlign,
+  width?: string,
   children?: React.Node,
 };
 
@@ -19,7 +22,7 @@ type TableHeaderProps = TableDataProps & {
 };
 
 export function Table({ children }: TableProps): React.Node {
-  const classes = useTableStyles();
+  const classes = useTableStyles({});
 
   return <table className={classes.table}>{children}</table>;
 }
@@ -37,18 +40,19 @@ export function TableHead({ children }: TableProps): React.Node {
 }
 
 export function TableHeader({
-  center,
   colSpan,
   rowSpan,
   scope,
+  textAlign,
+  width,
   children,
   styles,
 }: TableHeaderProps): React.Node {
-  const classes = useTableStyles();
+  const classes = useTableStyles({ textAlign, width });
 
   return (
     <th
-      className={center && classes.center}
+      className={classes.tableHeader}
       style={styles}
       colSpan={colSpan ? colSpan : 1}
       rowSpan={rowSpan ? rowSpan : 1}
@@ -59,18 +63,24 @@ export function TableHeader({
   );
 }
 
+TableHeader.defaultProps = {
+  textAlign: "center",
+};
+
 export function TableData({
-  center,
+  borderWidth,
   colSpan,
   rowSpan,
   children,
+  textAlign,
+  width,
   styles,
 }: TableDataProps): React.Node {
-  const classes = useTableStyles();
+  const classes = useTableStyles({ borderWidth, textAlign, width });
 
   return (
     <td
-      className={`${classes.tableData} ${center ? classes.center : ""}`}
+      className={classes.tableData}
       style={styles}
       colSpan={colSpan ? colSpan : 1}
       rowSpan={rowSpan ? rowSpan : 1}
@@ -80,17 +90,22 @@ export function TableData({
   );
 }
 
+TableData.defaultProps = { borderWidth: "1px", textAlign: "right" };
+
 const useTableStyles = createUseStyles({
-  center: {
-    textAlign: "center",
-  },
   table: {
     borderCollapse: "collapse",
   },
   tableData: {
-    border: "1px",
+    borderWidth: ({ borderWidth }) => borderWidth,
     borderStyle: "solid",
     margin: 0,
     padding: "5px 5px",
+    textAlign: ({ textAlign }) => textAlign,
+    width: ({ width }) => width,
+  },
+  tableHeader: {
+    textAlign: ({ textAlign }) => textAlign,
+    width: ({ width }) => width,
   },
 });
