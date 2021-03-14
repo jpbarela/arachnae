@@ -1,6 +1,7 @@
 // @flow
 export { Button, useButtonStyles } from "./Button";
 export type { ButtonStyleProps } from "./Button";
+export { DataTable } from "./DataTable";
 export {
   DateInput,
   Form,

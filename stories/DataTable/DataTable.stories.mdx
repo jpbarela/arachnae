@@ -1,0 +1,45 @@
+import { Meta, Story } from "@storybook/addon-docs/blocks";
+import { action } from "@storybook/addon-actions";
+import { DataTable } from "../../src/";
+
+<Meta
+  title="DataTable"
+  component={DataTable}
+  argTypes={{
+    columns: { table: { disable: true } },
+    data: { table: { disable: true } },
+  }}
+/>
+
+# DataTable
+
+A data table is an easier way to visualize arrays of data. You can add an array of data to define the column type and
+
+export const Template = (args) => (
+  <DataTable
+    columns={[
+      {
+        header: "Strings",
+        textAlign: "left",
+      },
+      {
+        header: "Numbers",
+        textAlign: "center",
+        width: "8rem",
+      },
+      {
+        header: "Dates",
+        textAlign: "right",
+        width: "25rem",
+      },
+    ]}
+    data={[
+      ["a", 1, Date(2021, 0, 1)],
+      ["b", 2, Date(2021, 1, 1)],
+      ["c", 3, Date(2021, 2, 1)],
+    ]}
+    {...args}
+  />
+);
+
+<Story name="DataTable">{Template.bind({})}</Story>
