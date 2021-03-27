@@ -13,7 +13,17 @@ import { DataTable } from "../../src/";
 
 # DataTable
 
-A data table is an easier way to visualize arrays of data. You can add an array of data to define the column type and
+A DataTable is an easier way to visualize arrays of data. You can add an array of data to define the column type and
+the properties of the column.
+
+DataTables will expand to fill the area of surroding container.
+
+You can also add a function to format the data so the array of initial data should remain unformatted to enable proper
+sorting, while presenting appropriate data to users.
+
+export const bold = (string) => (
+  <span style={{ fontWeight: "bold" }}>{string}</span>
+);
 
 export const Template = (args) => (
   <DataTable
@@ -21,11 +31,13 @@ export const Template = (args) => (
       {
         header: "Strings",
         textAlign: "left",
+        formatFunction: bold,
       },
       {
         header: "Numbers",
         textAlign: "center",
-        width: "8rem",
+        width: "10rem",
+        sortable: true,
       },
       {
         header: "Dates",
