@@ -3,7 +3,7 @@ import * as React from "react";
 import { render } from "../test-utils";
 import { DataTable } from "./index";
 
-describe("Button", () => {
+describe("DataTable", () => {
   it("renders", () => {
     const container = render(
       <DataTable

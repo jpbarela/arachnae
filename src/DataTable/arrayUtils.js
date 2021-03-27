@@ -1,10 +1,10 @@
 // @flow
 
 export function sortDataByColumn(
-  data: array<any>,
+  data: Array<any>,
   column: number,
   ascending?: boolean
-) {
+): Array<any> {
   const sortedData = data.slice();
   sortedData.sort(sortColumn(column, ascending || ascending === undefined));
   return sortedData;
