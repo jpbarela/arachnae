@@ -64,7 +64,7 @@ export function DataTable({
   }
 
   return (
-    <Table className={classes.table}>
+    <Table width="100%">
       <TableHead>
         <TableRow>
           {columns.map((column, index) => (
@@ -147,10 +147,11 @@ function DataElement({
   item,
   textAlign,
   width,
+  formatFunction,
 }: DataElementProps) {
   return (
     <TableData borderWidth={borderWidth} textAlign={textAlign} width={width}>
-      {item}
+      {formatFunction ? formatFunction(item) : item}
     </TableData>
   );
 }
@@ -158,8 +159,5 @@ function DataElement({
 const useDataTableStyles = createUseStyles({
   sortIndicator: {
     display: "inline-block",
-  },
-  table: {
-    width: "100%",
   },
 });

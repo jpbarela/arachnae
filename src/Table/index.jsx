@@ -4,6 +4,7 @@ import { createUseStyles } from "react-jss";
 import type { TextAlign } from "../commonTypes";
 
 type TableProps = {
+  width?: string,
   children?: React.Node,
 };
 
@@ -21,8 +22,8 @@ type TableHeaderProps = TableDataProps & {
   scope?: string,
 };
 
-export function Table({ children }: TableProps): React.Node {
-  const classes = useTableStyles({});
+export function Table({ width, children }: TableProps): React.Node {
+  const classes = useTableStyles({ width });
 
   return <table className={classes.table}>{children}</table>;
 }
@@ -94,6 +95,7 @@ TableData.defaultProps = { borderWidth: "1px", textAlign: "right" };
 
 const useTableStyles = createUseStyles({
   table: {
+    width: ({ width }) => width,
     borderCollapse: "collapse",
   },
   tableData: {
