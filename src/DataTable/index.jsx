@@ -41,6 +41,7 @@ type DataElementProps = {
   borderWidth?: string,
   textAlign?: TextAlign,
   width?: string,
+  formatFunction?: (any) => React.Node,
 };
 
 export function DataTable({
