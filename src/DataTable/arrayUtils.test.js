@@ -47,7 +47,7 @@ describe("sortDataByColumn", () => {
       ["g", 1, new Date(2021, 0, 1)],
       ["a", 3, new Date(2021, 1, 1)],
     ];
-    expect(sortDataByColumn(original, 2)).toEqual([
+    expect(sortDataByColumn(original, 2, true)).toEqual([
       ["g", 1, new Date(2021, 0, 1)],
       ["a", 3, new Date(2021, 1, 1)],
       ["d", 2, new Date(2021, 2, 1)],
@@ -60,7 +60,7 @@ describe("sortDataByColumn", () => {
       ["g", 1, new Date(2021, 0, 1)],
       ["a", 3, new Date(2021, 1, 1)],
     ];
-    expect(sortDataByColumn(original, 0, "DESC")).toEqual([
+    expect(sortDataByColumn(original, 0, false)).toEqual([
       ["g", 1, new Date(2021, 0, 1)],
       ["d", 2, new Date(2021, 2, 1)],
       ["a", 3, new Date(2021, 1, 1)],

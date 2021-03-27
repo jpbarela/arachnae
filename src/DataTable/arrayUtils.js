@@ -1,20 +1,17 @@
 // @flow
 
-type direction = "ASC" | "DESC";
-
 export function sortDataByColumn(
   data: array<any>,
   column: number,
-  direction?: direction
+  ascending?: boolean
 ) {
   const sortedData = data.slice();
-  const sortOrder = direction ? direction : "ASC";
-  sortedData.sort(sortColumn(column, sortOrder));
+  sortedData.sort(sortColumn(column, ascending || ascending === undefined));
   return sortedData;
 }
 
-function sortColumn(index: number, direction: direction) {
-  if (direction === "ASC") {
+function sortColumn(index: number, ascending: boolean) {
+  if (ascending) {
     return function (a, b) {
       if (a[index] < b[index]) {
         return -1;
