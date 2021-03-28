@@ -1,6 +1,6 @@
 {
   "name": "@jpbarela/arachnae",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "A simple React component library",
   "main": "dist/index.js",
   "files": [
@@ -42,7 +42,10 @@
     "@storybook/addon-essentials": "^6.1.14",
     "@storybook/addon-links": "^6.1.14",
     "@storybook/react": "^6.1.14",
+    "@testing-library/dom": "^7.30.1",
+    "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.0.4",
+    "@testing-library/user-event": "^13.0.16",
     "babel-jest": "^26.3.0",
     "babel-loader": "^8.2.2",
     "babel-preset-minify": "^0.5.1",
@@ -60,6 +63,7 @@
   "dependencies": {
     "date-fns": "^2.16.1",
     "jest-each": "^26.6.2",
-    "react-hook-form": "^6.14.2"
+    "react-hook-form": "^6.14.2",
+    "react-icons": "^4.2.0"
   }
 }

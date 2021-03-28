@@ -10,6 +10,7 @@ export {
   SubmitInput,
   TextInput,
 } from "./Form";
+export * as Icons from "./Icons";
 export { Row, useContainerStyles } from "./Layout";
 export type { ContainerProps } from "./Layout";
 export { Page } from "./Page";

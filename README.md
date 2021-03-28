@@ -1,7 +1,6 @@
 # Archanae
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/677152ea6e0519355229/maintainability)](https://codeclimate.com/github/jpbarela/arachnae/maintainability)
-
 [![Test Coverage](https://api.codeclimate.com/v1/badges/677152ea6e0519355229/test_coverage)](https://codeclimate.com/github/jpbarela/arachnae/test_coverage)
 
 Arachnae is a simple React component library. It uses Flow for typing and Aphrodite for style
