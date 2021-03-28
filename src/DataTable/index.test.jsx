@@ -34,7 +34,7 @@ describe("DataTable", () => {
     expect(container.baseElement.firstChild).toMatchSnapshot();
   });
 
-  it("sorts the data", async () => {
+  it("sorts the data", () => {
     render(
       <DataTable
         columns={[
@@ -70,5 +70,44 @@ describe("DataTable", () => {
     userEvent.click(ascendingSortIndicator);
     const descendingSortIndicator = screen.getByLabelText("descending sort");
     expect(descendingSortIndicator).toBeInTheDocument();
+  });
+
+  it("resets ascending on multi column sorts", () => {
+    render(
+      <DataTable
+        columns={[
+          {
+            header: "Strings",
+            textAlign: "left",
+            sortable: true,
+          },
+          {
+            header: "Numbers",
+            textAlign: "center",
+            width: "8rem",
+          },
+          {
+            header: "Dates",
+            textAlign: "right",
+            width: "25rem",
+            sortable: true,
+          },
+        ]}
+        data={[
+          ["a", 1, new Date(2021, 0, 1).toDateString()],
+          ["b", 2, new Date(2021, 1, 1).toDateString()],
+          ["c", 3, new Date(2021, 2, 1).toDateString()],
+        ]}
+      />
+    );
+
+    const sortIndicators = screen.getAllByLabelText("sortable");
+    expect(sortIndicators.length).toBe(2);
+    const firstButton = sortIndicators[0].closest("div");
+    const secondButton = sortIndicators[1].closest("div");
+    userEvent.click(firstButton);
+    expect(screen.getByLabelText("ascending sort")).toBeInTheDocument();
+    userEvent.click(secondButton);
+    expect(screen.getByLabelText("ascending sort")).toBeInTheDocument();
   });
 });
