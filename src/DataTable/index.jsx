@@ -138,7 +138,15 @@ function SortIndicator({
 
   return (
     <div className={classes.sortIndicator} onClick={setSort}>
-      {isSorted ? ascending ? <UpSort /> : <DownSort /> : <Sort />}
+      {isSorted ? (
+        ascending ? (
+          <UpSort aria-label="ascending sort" />
+        ) : (
+          <DownSort aria-label="descending sort" />
+        )
+      ) : (
+        <Sort aria-label="sortable" />
+      )}
     </div>
   );
 }

@@ -19,10 +19,12 @@ describe("sortDataByColumn", () => {
     const original = [
       ["d", "e", "f"],
       ["a", "b", "c"],
+      ["a", "j", "k"],
       ["g", "h", "i"],
     ];
     expect(sortDataByColumn(original, 0)).toEqual([
       ["a", "b", "c"],
+      ["a", "j", "k"],
       ["d", "e", "f"],
       ["g", "h", "i"],
     ]);
@@ -58,11 +60,13 @@ describe("sortDataByColumn", () => {
     const original = [
       ["d", 2, new Date(2021, 2, 1)],
       ["g", 1, new Date(2021, 0, 1)],
+      ["a", 4, new Date(2021, 1, 1)],
       ["a", 3, new Date(2021, 1, 1)],
     ];
     expect(sortDataByColumn(original, 0, false)).toEqual([
       ["g", 1, new Date(2021, 0, 1)],
       ["d", 2, new Date(2021, 2, 1)],
+      ["a", 4, new Date(2021, 1, 1)],
       ["a", 3, new Date(2021, 1, 1)],
     ]);
   });
