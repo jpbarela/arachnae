@@ -26,7 +26,7 @@ jobs:
       - name: Format
         run: npm run test
 
-  js_test:
+  report_coverage:
     name: Test components
     runs-on: ubuntu-latest
 
