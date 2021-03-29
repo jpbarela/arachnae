@@ -18,7 +18,7 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Install React
-        run: npm install react@${{ matrix.react }}
+        run: npm install react@${{ matrix.react }} react-dom@{{ matrix.react }}
       - name: Type Check
         run: npm run flow
       - name: Format
