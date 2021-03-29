@@ -7,17 +7,38 @@ jobs:
     name: Test components
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        react: ["16.13.1", "17.0.2"]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: 12.x
+          node-version: 15.x
       - name: Install Dependencies
         run: npm install
+      - name: Install React
+        run: npm install react@${{ matrix.react }}
       - name: Type Check
         run: npm run flow
       - name: Format
         run: npm run prettier
+      - name: Format
+        run: npm run test
+
+  js_test:
+    name: Test components
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 15.x
+      - name: Install Dependencies
+        run: npm install
+      - name: Install React
+        run: npm install react@17.0.2
       - name: Test Project
         uses: paambaati/codeclimate-action@v2.6.0
         env:

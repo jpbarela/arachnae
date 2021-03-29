@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/jpbarela/arachnae#readme",
   "peerDependencies": {
-    "react": "^16.13.1",
+    "react": "^16.13.1 || ^17.0.2",
     "react-jss": "^10.4.0"
   },
   "devDependencies": {
@@ -54,7 +54,6 @@
     "flow-typed": "^3.2.1",
     "jest": "^26.4.2",
     "prettier": "^2.2.1",
-    "react": "^16.13.1",
     "react-app-polyfill": "^1.0.6",
     "react-dom": "^16.13.1",
     "react-jss": "^10.4.0",
